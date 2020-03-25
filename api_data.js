@@ -123,9 +123,23 @@ define({ "api": [
           {
             "group": "Success 200",
             "type": "String",
+            "allowedValues": [
+              "\"TRIAL\"",
+              "\"PAID\"",
+              "\"EXPIRED\"",
+              "\"NOTACTIVATED\""
+            ],
+            "optional": false,
+            "field": "licenseStatus",
+            "defaultValue": "NOTACTIVATED",
+            "description": "<p>Indicates the users account status, whether it is in trail peroid, purchased, other not activated (payment failure) state.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
             "optional": false,
             "field": "activationCode",
-            "description": "<p>Activation code of the user. This will be 0000-0000-0000-0000, if the account is in trail period, otherwise a valid GUID.</p>"
+            "description": "<p>Activation code of the user. This will be a valid GUID.</p>"
           },
           {
             "group": "Success 200",
@@ -160,7 +174,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n  \"userId\": \"9389\",\n  \"authToken\": \"2345678-rt56789-KYHD839-K98399\",\n  \"firstname\": \"John\",\n  \"lastname\": \"Doe\",\n  \"company\": \"Digital Mesh\",\n  \"email\": \"user@digitalmesh.com\",\n  \"address\": \"Address Line 1, Address Line 2\",\n  \"city\": \"Kochi\",\n  \"state\": \"Kerala\",\n  \"zip\": \"123456\",\n  \"country\" : \"India\",\n  \"telephone\": \"1234567900\",\n  \"activationCode\": \"3215Y-HSDHY7-328DH-GD72KJ\",\n  \"sites\": [{ \n     \"id\": \"928799\",\n     \"name\": \"TextLocal\",\n     \"url\": \"https://textlocal.co/admin\"      \n   }]\n}",
+          "content": "HTTP/1.1 200 OK\n{\n  \"userId\": \"9389\",\n  \"authToken\": \"2345678-rt56789-KYHD839-K98399\",\n  \"firstname\": \"John\",\n  \"lastname\": \"Doe\",\n  \"company\": \"Digital Mesh\",\n  \"email\": \"user@digitalmesh.com\",\n  \"address\": \"Address Line 1, Address Line 2\",\n  \"city\": \"Kochi\",\n  \"state\": \"Kerala\",\n  \"zip\": \"123456\",\n  \"country\" : \"India\",\n  \"telephone\": \"1234567900\",\n  \"licenseStatus\": \"PAID\",\n  \"activationCode\": \"3215Y-HSDHY7-328DH-GD72KJ\",\n  \"sites\": [{ \n     \"id\": \"928799\",\n     \"name\": \"TextLocal\",\n     \"url\": \"https://textlocal.co/admin\"      \n   }]\n}",
           "type": "json"
         }
       ]
