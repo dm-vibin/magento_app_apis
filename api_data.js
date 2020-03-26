@@ -27,7 +27,7 @@ define({ "api": [
       },
       "examples": [
         {
-          "title": "Request-Example:",
+          "title": "Params:",
           "content": "{\n  \"username\": \"user@example.com\",\n  \"password\": \"F6$879paSS!\"\n}",
           "type": "json"
         }
@@ -174,7 +174,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n  \"userId\": \"9389\",\n  \"authToken\": \"2345678-rt56789-KYHD839-K98399\",\n  \"firstname\": \"John\",\n  \"lastname\": \"Doe\",\n  \"company\": \"Digital Mesh\",\n  \"email\": \"user@digitalmesh.com\",\n  \"address\": \"Address Line 1, Address Line 2\",\n  \"city\": \"Kochi\",\n  \"state\": \"Kerala\",\n  \"zip\": \"123456\",\n  \"country\" : \"India\",\n  \"telephone\": \"1234567900\",\n  \"licenseStatus\": \"PAID\",\n  \"activationCode\": \"3215Y-HSDHY7-328DH-GD72KJ\",\n  \"sites\": [{ \n     \"id\": \"928799\",\n     \"name\": \"TextLocal\",\n     \"url\": \"https://textlocal.co/admin\"      \n   }]\n}",
+          "content": "HTTP/1.1 200 OK\n{\n   \"userId\": \"9389\",\n   \"authToken\": \"2345678-rt56789-KYHD839-K98399\",\n   \"firstname\": \"John\",\n   \"lastname\": \"Doe\",\n   \"company\": \"Digital Mesh\",\n   \"email\": \"user@digitalmesh.com\",\n   \"address\": \"Address Line 1, Address Line 2\",\n   \"city\": \"Kochi\",\n   \"state\": \"Kerala\",\n   \"zip\": \"123456\",\n   \"country\" : \"India\",\n   \"telephone\": \"1234567900\",\n   \"licenseStatus\": \"PAID\",\n   \"activationCode\": \"3215Y-HSDHY7-328DH-GD72KJ\",\n   \"sites\": [{ \n       \"id\": \"928799\",\n       \"name\": \"TextLocal\",\n       \"url\": \"https://textlocal.co/admin\"      \n   }]\n}",
           "type": "json"
         }
       ]
@@ -202,7 +202,7 @@ define({ "api": [
       "examples": [
         {
           "title": "InvalidUser:",
-          "content": "HTTP/1.1 401 InvalidUser\n{\n  \"error\": \"Invalid username or password\"\n}",
+          "content": "HTTP/1.1 401 InvalidUser\n{\n   \"error\": \"Invalid username or password\"\n}",
           "type": "json"
         },
         {
@@ -245,13 +245,20 @@ define({ "api": [
             "optional": false,
             "field": "Device-OS-Version",
             "description": "<p>Device OS version. Used during the time of removing app support for an OS Version.</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Currency",
+            "description": "<p>Currency based on device locale.</p>"
           }
         ]
       },
       "examples": [
         {
           "title": "CommonHeader",
-          "content": "{\n    \"App-Version\": \"0.0.1\",\n    \"Build-Number\": \"0.0.1\",\n    \"Device-Type\": \"Android\",\n    \"Device-OS-Version\": \"10.0.3\"\n}",
+          "content": "{\n    \"App-Version\": \"0.0.1\",\n    \"Build-Number\": \"0.0.1\",\n    \"Device-Type\": \"Android\",\n    \"Device-OS-Version\": \"10.0.3\",\n    \"Currency\": \"$\"\n}",
           "type": "json"
         }
       ]
@@ -311,6 +318,13 @@ define({ "api": [
             "group": "Header",
             "type": "String",
             "optional": false,
+            "field": "Currency",
+            "description": "<p>Currency based on device locale.</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
             "field": "Authorization",
             "description": "<p>AuthToken received during login.</p>"
           }
@@ -319,12 +333,1061 @@ define({ "api": [
       "examples": [
         {
           "title": "CommonHeader",
-          "content": "{\n    \"App-Version\": \"0.0.1\",\n    \"Build-Number\": \"0.0.1\",\n    \"Device-Type\": \"Android\",\n    \"Device-OS-Version\": \"10.0.3\"\n}",
+          "content": "{\n    \"App-Version\": \"0.0.1\",\n    \"Build-Number\": \"0.0.1\",\n    \"Device-Type\": \"Android\",\n    \"Device-OS-Version\": \"10.0.3\",\n    \"Currency\": \"$\"\n}",
           "type": "json"
         },
         {
           "title": "AuthHeader",
           "content": "{\n    \"Authorization\": \"Bearer YWxhZGRpbjpvcGVuc2VzYW1l\"\n}",
+          "type": "json"
+        }
+      ]
+    }
+  },
+  {
+    "type": "GET",
+    "url": "/cart/abandoned",
+    "title": "Get Abandoned Cart",
+    "description": "<p>Returns the abandoned cart items</p>",
+    "group": "Cart",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Object[]",
+            "optional": false,
+            "field": "carts",
+            "description": "<p>List of abandoned cart items.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "carts.id",
+            "description": "<p>Unique ID of the item.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "carts.date",
+            "description": "<p>Date on which the order is received.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "carts.customer",
+            "description": "<p>Details of the customer.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "carts.customer.name",
+            "description": "<p>Name of the customer.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "carts.customer.contact",
+            "description": "<p>Contact number of the customer.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "carts.price",
+            "description": "<p>The total price of the order, eg: 100.00, formated to two decimal places.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "carts.items",
+            "description": "<p>Number of items in the order.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n     \"carts\": [{\n         \"id\": \"8743689\",\n         \"date\": \"2019/12/30\",\n         \"customer\": {\n             \"name\": \"Darvin Fleming\",\n             \"contact\": \"838877798797\"\n         },\n         \"price\": 983.00,\n         \"items\": 10\n      }]\n }",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "apis/cart.js",
+    "groupTitle": "Cart",
+    "name": "GetCartAbandoned",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "App-Version",
+            "description": "<p>Version of the application.</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Build-Number",
+            "description": "<p>The Build number of the application.</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Device-Type",
+            "description": "<p>Type of the device. iOS/Android.</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Device-OS-Version",
+            "description": "<p>Device OS version. Used during the time of removing app support for an OS Version.</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Currency",
+            "description": "<p>Currency based on device locale.</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>AuthToken received during login.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "CommonHeader",
+          "content": "{\n    \"App-Version\": \"0.0.1\",\n    \"Build-Number\": \"0.0.1\",\n    \"Device-Type\": \"Android\",\n    \"Device-OS-Version\": \"10.0.3\",\n    \"Currency\": \"$\"\n}",
+          "type": "json"
+        },
+        {
+          "title": "AuthHeader",
+          "content": "{\n    \"Authorization\": \"Bearer YWxhZGRpbjpvcGVuc2VzYW1l\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "401": [
+          {
+            "group": "401",
+            "type": "String",
+            "optional": false,
+            "field": "SessionExpired",
+            "description": "<p>User session has expired.</p>"
+          }
+        ],
+        "6xx": [
+          {
+            "group": "6xx",
+            "type": "String",
+            "optional": false,
+            "field": "GeneralError",
+            "description": "<p>Any general / undefined error types will come under this category.</p>"
+          },
+          {
+            "group": "6xx",
+            "type": "String",
+            "optional": false,
+            "field": "MagentoNoPermission",
+            "description": "<p>The app doesnot have sufficient permissions to access the information.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "SessionExpired",
+          "content": "HTTP/1.1 401 SessionExpired\n{\n    error: \"Your session has expired. Please sign-in again.\"  \n}",
+          "type": "json"
+        },
+        {
+          "title": "GeneralError",
+          "content": "HTTP/1.1 600 GeneralError\n{\n    error: \"An error occured. Please try again.\"  \n}",
+          "type": "json"
+        },
+        {
+          "title": "MagentoNoPermission",
+          "content": "HTTP/1.1 602 MagentoNoPermission\n{\n    error: \"The app doesnot have sufficient permissions to access the information.\"  \n}",
+          "type": "json"
+        }
+      ]
+    }
+  },
+  {
+    "type": "GET",
+    "url": "/cart/abandoned/:id",
+    "title": "Get Abandoned Cart Details",
+    "description": "<p>Returns the details of a particular abandoned cart item</p>",
+    "group": "Cart",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "id",
+            "description": "<p>Unique ID of the abandoned cart item</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "id",
+            "description": "<p>Unique ID of the abandoned cart item.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "date",
+            "description": "<p>Date on which the order is received.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "customer",
+            "description": "<p>Details of the customer.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "customer.name",
+            "description": "<p>Name of the customer.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "customer.contact",
+            "description": "<p>Contact number of the customer.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object[]",
+            "optional": false,
+            "field": "products",
+            "description": "<p>List of products ordered.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "products.id",
+            "description": "<p>Unique ID of the product.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "products.name",
+            "description": "<p>Name of the product.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "products.quantity",
+            "description": "<p>Quantity of the product ordered.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "products.price",
+            "description": "<p>Total price of the product based on the quantilty ordered.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n    \"id\": \"8743689\",\n    \"date\": \"2019/12/30\",\n    \"customer\": {\n        \"name\": \"Darvin Fleming\",\n        \"contact\": \"838877798797\"\n    },\n    \"products\": [{\n        \"id\": \"832764\",\n        \"name\": \"REDMI NOTE 7 PRO, 64 GB\",\n        \"quantity\": \"9 pieces\",\n        \"price\": 900.00\n    }]\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "apis/cart.js",
+    "groupTitle": "Cart",
+    "name": "GetCartAbandonedId",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "App-Version",
+            "description": "<p>Version of the application.</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Build-Number",
+            "description": "<p>The Build number of the application.</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Device-Type",
+            "description": "<p>Type of the device. iOS/Android.</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Device-OS-Version",
+            "description": "<p>Device OS version. Used during the time of removing app support for an OS Version.</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Currency",
+            "description": "<p>Currency based on device locale.</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>AuthToken received during login.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "CommonHeader",
+          "content": "{\n    \"App-Version\": \"0.0.1\",\n    \"Build-Number\": \"0.0.1\",\n    \"Device-Type\": \"Android\",\n    \"Device-OS-Version\": \"10.0.3\",\n    \"Currency\": \"$\"\n}",
+          "type": "json"
+        },
+        {
+          "title": "AuthHeader",
+          "content": "{\n    \"Authorization\": \"Bearer YWxhZGRpbjpvcGVuc2VzYW1l\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "401": [
+          {
+            "group": "401",
+            "type": "String",
+            "optional": false,
+            "field": "SessionExpired",
+            "description": "<p>User session has expired.</p>"
+          }
+        ],
+        "6xx": [
+          {
+            "group": "6xx",
+            "type": "String",
+            "optional": false,
+            "field": "GeneralError",
+            "description": "<p>Any general / undefined error types will come under this category.</p>"
+          },
+          {
+            "group": "6xx",
+            "type": "String",
+            "optional": false,
+            "field": "MagentoNoPermission",
+            "description": "<p>The app doesnot have sufficient permissions to access the information.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "SessionExpired",
+          "content": "HTTP/1.1 401 SessionExpired\n{\n    error: \"Your session has expired. Please sign-in again.\"  \n}",
+          "type": "json"
+        },
+        {
+          "title": "GeneralError",
+          "content": "HTTP/1.1 600 GeneralError\n{\n    error: \"An error occured. Please try again.\"  \n}",
+          "type": "json"
+        },
+        {
+          "title": "MagentoNoPermission",
+          "content": "HTTP/1.1 602 MagentoNoPermission\n{\n    error: \"The app doesnot have sufficient permissions to access the information.\"  \n}",
+          "type": "json"
+        }
+      ]
+    }
+  },
+  {
+    "type": "GET",
+    "url": "/order/:orderId",
+    "title": "Get Order",
+    "description": "<p>Returns the details of a particular order</p>",
+    "group": "Order",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "orderId",
+            "description": "<p>Unique ID of the order</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "id",
+            "description": "<p>Unique ID of the order.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "date",
+            "description": "<p>Date on which the order is received.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "allowedValues": [
+              "\"RECEIVED\"",
+              "\"CONFIRMED\"",
+              "\"PROCESSING\"",
+              "\"SHIPPED\"",
+              "\"DELIVERED\"",
+              "\"CANCELLED\""
+            ],
+            "optional": false,
+            "field": "orders.status",
+            "description": "<p>Status of the order.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "updatedOn",
+            "description": "<p>The date on which the order status was updated.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object[]",
+            "optional": false,
+            "field": "statusHistory",
+            "description": "<p>List of the status updates.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "statusHistory.status",
+            "description": "<p>Changed to status.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "statusHistory.date",
+            "description": "<p>Date on which the mentioned status was updated to.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "customer",
+            "description": "<p>Details of the customer.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "customer.name",
+            "description": "<p>Name of the customer.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "customer.contact",
+            "description": "<p>Contact number of the customer.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "customer.billingAddress",
+            "description": "<p>The details of billing address.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "customer.deliveryAddress",
+            "description": "<p>The details of delivery address.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object[]",
+            "optional": false,
+            "field": "products",
+            "description": "<p>List of products ordered.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "products.id",
+            "description": "<p>Unique ID of the product.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "products.name",
+            "description": "<p>Name of the product.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "products.quantity",
+            "description": "<p>Quantity of the product ordered.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "products.price",
+            "description": "<p>Total price of the product based on the quantilty ordered.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n    \"id\": \"8743689\",\n    \"date\": \"2019/12/30\",\n    \"status\": \"PROCESSING\",\n    \"updatedOn\": \"2019/12/31\",\n    \"statusHistory\": [{\n        \"status\": \"RECEIVED\",\n        \"date\": \"2019/12/30\"\n    },{\n        \"status\": \"CONFIRMED\",\n        \"date\": \"2019/12/30\"\n    },{\n        \"status\": \"PROCESSING\",\n        \"date\": \"2019/12/31\"\n    }],\n    \"customer\": {\n        \"name\": \"Darvin Fleming\",\n        \"contact\": \"838877798797\",\n        \"billingAddress\": \"700 Arnold Street Pasadena, MD 21122\",\n        \"deliveryAddress\": \"585 Pawnee Circle Lanham, MD 20706\"\n    },\n    \"products\": [{\n        \"id\": \"832764\",\n        \"name\": \"REDMI NOTE 7 PRO, 64 GB\",\n        \"quantity\": \"9 pieces\",\n        \"price\": 900.00\n    }]\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "apis/orders.js",
+    "groupTitle": "Order",
+    "name": "GetOrderOrderid",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "App-Version",
+            "description": "<p>Version of the application.</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Build-Number",
+            "description": "<p>The Build number of the application.</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Device-Type",
+            "description": "<p>Type of the device. iOS/Android.</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Device-OS-Version",
+            "description": "<p>Device OS version. Used during the time of removing app support for an OS Version.</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Currency",
+            "description": "<p>Currency based on device locale.</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>AuthToken received during login.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "CommonHeader",
+          "content": "{\n    \"App-Version\": \"0.0.1\",\n    \"Build-Number\": \"0.0.1\",\n    \"Device-Type\": \"Android\",\n    \"Device-OS-Version\": \"10.0.3\",\n    \"Currency\": \"$\"\n}",
+          "type": "json"
+        },
+        {
+          "title": "AuthHeader",
+          "content": "{\n    \"Authorization\": \"Bearer YWxhZGRpbjpvcGVuc2VzYW1l\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "401": [
+          {
+            "group": "401",
+            "type": "String",
+            "optional": false,
+            "field": "SessionExpired",
+            "description": "<p>User session has expired.</p>"
+          }
+        ],
+        "6xx": [
+          {
+            "group": "6xx",
+            "type": "String",
+            "optional": false,
+            "field": "GeneralError",
+            "description": "<p>Any general / undefined error types will come under this category.</p>"
+          },
+          {
+            "group": "6xx",
+            "type": "String",
+            "optional": false,
+            "field": "MagentoNoPermission",
+            "description": "<p>The app doesnot have sufficient permissions to access the information.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "SessionExpired",
+          "content": "HTTP/1.1 401 SessionExpired\n{\n    error: \"Your session has expired. Please sign-in again.\"  \n}",
+          "type": "json"
+        },
+        {
+          "title": "GeneralError",
+          "content": "HTTP/1.1 600 GeneralError\n{\n    error: \"An error occured. Please try again.\"  \n}",
+          "type": "json"
+        },
+        {
+          "title": "MagentoNoPermission",
+          "content": "HTTP/1.1 602 MagentoNoPermission\n{\n    error: \"The app doesnot have sufficient permissions to access the information.\"  \n}",
+          "type": "json"
+        }
+      ]
+    }
+  },
+  {
+    "type": "GET",
+    "url": "/order/orders",
+    "title": "Get Orders",
+    "description": "<p>Returns the orders</p>",
+    "group": "Order",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Object[]",
+            "optional": false,
+            "field": "orders",
+            "description": "<p>List of orders.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "orders.id",
+            "description": "<p>Unique ID of the order.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "orders.date",
+            "description": "<p>Date on which the order is received.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "allowedValues": [
+              "\"RECEIVED\"",
+              "\"CONFIRMED\"",
+              "\"PROCESSING\"",
+              "\"SHIPPED\"",
+              "\"DELIVERED\"",
+              "\"CANCELLED\""
+            ],
+            "optional": false,
+            "field": "orders.status",
+            "description": "<p>Status of the order.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "orders.updatedOn",
+            "description": "<p>The date on which the order status was updated.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "orders.customer",
+            "description": "<p>Details of the customer.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "orders.customer.name",
+            "description": "<p>Name of the customer.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "orders.customer.contact",
+            "description": "<p>Contact number of the customer.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "orders.price",
+            "description": "<p>The total price of the order, eg: 100.00, formated to two decimal places.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "orders.items",
+            "description": "<p>Number of items in the order.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n {\n     \"orders\": [{\n         \"id\": \"8743689\",\n         \"date\": \"2019/12/30\",\n         \"status\": \"PROCESSING\",\n         \"updatedOn\": \"2019/12/31\",\n         \"customer\": {\n             \"name\": \"Darvin Fleming\",\n             \"contact\": \"838877798797\"\n         },\n         \"price\": 983.00,\n         \"items\": 10\n     }]\n }",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "apis/orders.js",
+    "groupTitle": "Order",
+    "name": "GetOrderOrders",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "App-Version",
+            "description": "<p>Version of the application.</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Build-Number",
+            "description": "<p>The Build number of the application.</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Device-Type",
+            "description": "<p>Type of the device. iOS/Android.</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Device-OS-Version",
+            "description": "<p>Device OS version. Used during the time of removing app support for an OS Version.</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Currency",
+            "description": "<p>Currency based on device locale.</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>AuthToken received during login.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "CommonHeader",
+          "content": "{\n    \"App-Version\": \"0.0.1\",\n    \"Build-Number\": \"0.0.1\",\n    \"Device-Type\": \"Android\",\n    \"Device-OS-Version\": \"10.0.3\",\n    \"Currency\": \"$\"\n}",
+          "type": "json"
+        },
+        {
+          "title": "AuthHeader",
+          "content": "{\n    \"Authorization\": \"Bearer YWxhZGRpbjpvcGVuc2VzYW1l\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "401": [
+          {
+            "group": "401",
+            "type": "String",
+            "optional": false,
+            "field": "SessionExpired",
+            "description": "<p>User session has expired.</p>"
+          }
+        ],
+        "6xx": [
+          {
+            "group": "6xx",
+            "type": "String",
+            "optional": false,
+            "field": "GeneralError",
+            "description": "<p>Any general / undefined error types will come under this category.</p>"
+          },
+          {
+            "group": "6xx",
+            "type": "String",
+            "optional": false,
+            "field": "MagentoNoPermission",
+            "description": "<p>The app doesnot have sufficient permissions to access the information.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "SessionExpired",
+          "content": "HTTP/1.1 401 SessionExpired\n{\n    error: \"Your session has expired. Please sign-in again.\"  \n}",
+          "type": "json"
+        },
+        {
+          "title": "GeneralError",
+          "content": "HTTP/1.1 600 GeneralError\n{\n    error: \"An error occured. Please try again.\"  \n}",
+          "type": "json"
+        },
+        {
+          "title": "MagentoNoPermission",
+          "content": "HTTP/1.1 602 MagentoNoPermission\n{\n    error: \"The app doesnot have sufficient permissions to access the information.\"  \n}",
+          "type": "json"
+        }
+      ]
+    }
+  },
+  {
+    "type": "PATCH",
+    "url": "/order/:orderId",
+    "title": "Save Order",
+    "description": "<p>Updates the order with the details provided</p>",
+    "group": "Order",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "orderId",
+            "description": "<p>Unique ID of the order</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "allowedValues": [
+              "\"RECEIVED\"",
+              "\"CONFIRMED\"",
+              "\"PROCESSING\"",
+              "\"SHIPPED\"",
+              "\"DELIVERED\"",
+              "\"CANCELLED\""
+            ],
+            "optional": false,
+            "field": "status",
+            "description": "<p>Which status the order is moving to.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Params:",
+          "content": "{\n    \"status\": \"SHIPPED\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "id",
+            "description": "<p>Unique ID of the order.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n      \"id\": \"8743689\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "apis/orders.js",
+    "groupTitle": "Order",
+    "name": "PatchOrderOrderid",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "App-Version",
+            "description": "<p>Version of the application.</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Build-Number",
+            "description": "<p>The Build number of the application.</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Device-Type",
+            "description": "<p>Type of the device. iOS/Android.</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Device-OS-Version",
+            "description": "<p>Device OS version. Used during the time of removing app support for an OS Version.</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Currency",
+            "description": "<p>Currency based on device locale.</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>AuthToken received during login.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "CommonHeader",
+          "content": "{\n    \"App-Version\": \"0.0.1\",\n    \"Build-Number\": \"0.0.1\",\n    \"Device-Type\": \"Android\",\n    \"Device-OS-Version\": \"10.0.3\",\n    \"Currency\": \"$\"\n}",
+          "type": "json"
+        },
+        {
+          "title": "AuthHeader",
+          "content": "{\n    \"Authorization\": \"Bearer YWxhZGRpbjpvcGVuc2VzYW1l\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "401": [
+          {
+            "group": "401",
+            "type": "String",
+            "optional": false,
+            "field": "SessionExpired",
+            "description": "<p>User session has expired.</p>"
+          }
+        ],
+        "6xx": [
+          {
+            "group": "6xx",
+            "type": "String",
+            "optional": false,
+            "field": "GeneralError",
+            "description": "<p>Any general / undefined error types will come under this category.</p>"
+          },
+          {
+            "group": "6xx",
+            "type": "String",
+            "optional": false,
+            "field": "MagentoNoPermission",
+            "description": "<p>The app doesnot have sufficient permissions to access the information.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "SessionExpired",
+          "content": "HTTP/1.1 401 SessionExpired\n{\n    error: \"Your session has expired. Please sign-in again.\"  \n}",
+          "type": "json"
+        },
+        {
+          "title": "GeneralError",
+          "content": "HTTP/1.1 600 GeneralError\n{\n    error: \"An error occured. Please try again.\"  \n}",
+          "type": "json"
+        },
+        {
+          "title": "MagentoNoPermission",
+          "content": "HTTP/1.1 602 MagentoNoPermission\n{\n    error: \"The app doesnot have sufficient permissions to access the information.\"  \n}",
           "type": "json"
         }
       ]
@@ -343,8 +1406,15 @@ define({ "api": [
             "group": "Parameter",
             "type": "String",
             "optional": false,
-            "field": "date",
-            "description": "<p>Date's infomation to be fetched from Google Analytics server.</p>"
+            "field": "dateFrom",
+            "description": "<p>From date, the date from infomation has to be fetched from Google Analytics server. The date format will be in yyyy/MM/dd</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "dateTo",
+            "description": "<p>The date upto the infomation to be collecetd from Google Analytics server. The date format will be in yyyy/MM/dd</p>"
           },
           {
             "group": "Parameter",
@@ -357,8 +1427,8 @@ define({ "api": [
       },
       "examples": [
         {
-          "title": "Request-Example:",
-          "content": "{\n  \"date\": \"2020/03/21\",\n  \"siteId\": \"4359989\"\n}",
+          "title": "Params:",
+          "content": "{\n  \"dateFrom\": \"2020/03/21\",\n  \"dateTo\": \"2020/03/21\"\n  \"siteId\": \"4359989\"\n}",
           "type": "json"
         }
       ]
@@ -525,7 +1595,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "    HTTP/1.1 200 OK\n    {\n         \"hits\": 53,\n         \"users\": 16,\n         \"sessionsPerUser\":1.25,\n         \"sessions\": 20,\n         \"sessionDuration\":1036.0,\n         \"timeOnPage\":1037.0,\n         \"bounces\": 11,\n         \"bounceRate\":55.00000000000001,\n         \"avgSessionDuration\":51.8\n\n         \"countryWise\": [\n             {\n                 \"code\":\"GB\",\n                 \"sessions\":2\n             },\n             {\n                 \"code\":\"IN\",\n                 \"sessions\":13\n             }\n         ],\n\n         \"pageWise\": [ {\n                 \"hostname\":\"localhost\",\n                 \"pagePath\":\"/taarikaLocal/\",\n                 \"sessions\":2,\n                 \"pageValue\":0.0\n             }, {\n                 \"hostname\":\"taarikajohnshop.com\",\n                 \"pagePath\":\"/\",\n                 \"sessions\":12,\n                 \"pageValue\":0.0\n             } ],\n\n\t        \"sourceWise\": [ {\n             \"sourceMedium\":\"(direct) / (none)\",\n             \"sessions\":5,\n             \"users\":4,\n             \"organicSearches\":0\n          }, {\n             \"sourceMedium\":\"ameliahome.xyz / referral\",\n             \"sessions\":1,\n             \"users\":1,\n             \"organicSearches\":0\n         }]\n     }",
+          "content": "    HTTP/1.1 200 OK\n    {\n         \"hits\": 53,\n         \"users\": 16,\n         \"sessionsPerUser\":1.25,\n         \"sessions\": 20,\n         \"sessionDuration\":1036.0,\n         \"timeOnPage\":1037.0,\n         \"bounces\": 11,\n         \"bounceRate\":55.00000000000001,\n         \"avgSessionDuration\":51.8\n\n         \"countryWise\": [\n             {\n                 \"code\":\"GB\",\n                 \"sessions\":2\n             },\n             {\n                 \"code\":\"IN\",\n                 \"sessions\":13\n             }\n         ],\n\n         \"pageWise\": [ {\n                 \"hostname\":\"localhost\",\n                 \"pagePath\":\"/taarikaLocal/\",\n                 \"sessions\":2,\n                 \"pageValue\":0.0\n             }, {\n                 \"hostname\":\"taarikajohnshop.com\",\n                 \"pagePath\":\"/\",\n                 \"sessions\":12,\n                 \"pageValue\":0.0\n             } ],\n \n\t        \"sourceWise\": [ {\n             \"sourceMedium\":\"(direct) / (none)\",\n             \"sessions\":5,\n             \"users\":4,\n             \"organicSearches\":0\n          }, {\n             \"sourceMedium\":\"ameliahome.xyz / referral\",\n             \"sessions\":1,\n             \"users\":1,\n             \"organicSearches\":0\n         }]\n     }",
           "type": "json"
         }
       ]
@@ -615,6 +1685,13 @@ define({ "api": [
             "group": "Header",
             "type": "String",
             "optional": false,
+            "field": "Currency",
+            "description": "<p>Currency based on device locale.</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
             "field": "Authorization",
             "description": "<p>AuthToken received during login.</p>"
           }
@@ -623,7 +1700,7 @@ define({ "api": [
       "examples": [
         {
           "title": "CommonHeader",
-          "content": "{\n    \"App-Version\": \"0.0.1\",\n    \"Build-Number\": \"0.0.1\",\n    \"Device-Type\": \"Android\",\n    \"Device-OS-Version\": \"10.0.3\"\n}",
+          "content": "{\n    \"App-Version\": \"0.0.1\",\n    \"Build-Number\": \"0.0.1\",\n    \"Device-Type\": \"Android\",\n    \"Device-OS-Version\": \"10.0.3\",\n    \"Currency\": \"$\"\n}",
           "type": "json"
         },
         {
