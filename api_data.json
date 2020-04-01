@@ -49,132 +49,13 @@
             "optional": false,
             "field": "authToken",
             "description": "<p>Authorisation token that authorise the user for rest of the communication.</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "firstname",
-            "description": "<p>Firstname of the User.</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "lastname",
-            "description": "<p>Lastname of the User.</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "company",
-            "description": "<p>Company name of the User.</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "email",
-            "description": "<p>Email address of the User.</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "address",
-            "description": "<p>Address of the User.</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "city",
-            "description": "<p>City of the User.</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "state",
-            "description": "<p>State of the User.</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "zip",
-            "description": "<p>Zipcode of the User.</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "country",
-            "description": "<p>Country of the User.</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "telephone",
-            "description": "<p>Telephone of the User.</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "String",
-            "allowedValues": [
-              "\"TRIAL\"",
-              "\"PAID\"",
-              "\"EXPIRED\"",
-              "\"NOTACTIVATED\""
-            ],
-            "optional": false,
-            "field": "licenseStatus",
-            "defaultValue": "NOTACTIVATED",
-            "description": "<p>Indicates the users account status, whether it is in trail peroid, purchased, other not activated (payment failure) state.</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "activationCode",
-            "description": "<p>Activation code of the user. This will be a valid GUID.</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "Object[]",
-            "optional": false,
-            "field": "sites",
-            "description": "<p>List of sites available for the user.</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "sites.id",
-            "description": "<p>Unique id of the site.</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "sites.name",
-            "description": "<p>An identifiable name of the site.</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "sites.url",
-            "description": "<p>Url of the site.</p>"
           }
         ]
       },
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n   \"userId\": \"9389\",\n   \"authToken\": \"2345678-rt56789-KYHD839-K98399\",\n   \"firstname\": \"John\",\n   \"lastname\": \"Doe\",\n   \"company\": \"Digital Mesh\",\n   \"email\": \"user@digitalmesh.com\",\n   \"address\": \"Address Line 1, Address Line 2\",\n   \"city\": \"Kochi\",\n   \"state\": \"Kerala\",\n   \"zip\": \"123456\",\n   \"country\" : \"India\",\n   \"telephone\": \"1234567900\",\n   \"licenseStatus\": \"PAID\",\n   \"activationCode\": \"3215Y-HSDHY7-328DH-GD72KJ\",\n   \"sites\": [{ \n       \"id\": \"928799\",\n       \"name\": \"TextLocal\",\n       \"url\": \"https://textlocal.co/admin\"      \n   }]\n}",
+          "content": "HTTP/1.1 200 OK\n{\n   \"userId\": \"9389\",\n   \"authToken\": \"2345678-rt56789-KYHD839-K98399\"\n}",
           "type": "json"
         }
       ]
@@ -485,9 +366,9 @@
     },
     "error": {
       "fields": {
-        "401": [
+        "4xx": [
           {
-            "group": "401",
+            "group": "4xx",
             "type": "String",
             "optional": false,
             "field": "SessionExpired",
@@ -621,13 +502,20 @@
             "optional": false,
             "field": "products.price",
             "description": "<p>Total price of the product based on the quantilty ordered.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "products.image",
+            "description": "<p>Thumbnail image of the product</p>"
           }
         ]
       },
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n    \"id\": \"8743689\",\n    \"date\": \"2019/12/30\",\n    \"customer\": {\n        \"name\": \"Darvin Fleming\",\n        \"contact\": \"838877798797\"\n    },\n    \"products\": [{\n        \"id\": \"832764\",\n        \"name\": \"REDMI NOTE 7 PRO, 64 GB\",\n        \"quantity\": \"9 pieces\",\n        \"price\": 900.00\n    }]\n}",
+          "content": "HTTP/1.1 200 OK\n{\n    \"id\": \"8743689\",\n    \"date\": \"2019/12/30\",\n    \"customer\": {\n        \"name\": \"Darvin Fleming\",\n        \"contact\": \"838877798797\"\n    },\n    \"products\": [{\n        \"id\": \"832764\",\n        \"name\": \"REDMI NOTE 7 PRO, 64 GB\",\n        \"quantity\": \"9 pieces\",\n        \"price\": 900.00,\n        \"image\": \"https://resources.example.com/products/2187312.jpg\"\n    }]\n}",
           "type": "json"
         }
       ]
@@ -698,9 +586,9 @@
     },
     "error": {
       "fields": {
-        "401": [
+        "4xx": [
           {
-            "group": "401",
+            "group": "4xx",
             "type": "String",
             "optional": false,
             "field": "SessionExpired",
@@ -891,13 +779,20 @@
             "optional": false,
             "field": "products.price",
             "description": "<p>Total price of the product based on the quantilty ordered.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "products.image",
+            "description": "<p>Thumbnail image of the product</p>"
           }
         ]
       },
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n    \"id\": \"8743689\",\n    \"date\": \"2019/12/30\",\n    \"status\": \"PROCESSING\",\n    \"updatedOn\": \"2019/12/31\",\n    \"statusHistory\": [{\n        \"status\": \"RECEIVED\",\n        \"date\": \"2019/12/30\"\n    },{\n        \"status\": \"CONFIRMED\",\n        \"date\": \"2019/12/30\"\n    },{\n        \"status\": \"PROCESSING\",\n        \"date\": \"2019/12/31\"\n    }],\n    \"customer\": {\n        \"name\": \"Darvin Fleming\",\n        \"contact\": \"838877798797\",\n        \"billingAddress\": \"700 Arnold Street Pasadena, MD 21122\",\n        \"deliveryAddress\": \"585 Pawnee Circle Lanham, MD 20706\"\n    },\n    \"products\": [{\n        \"id\": \"832764\",\n        \"name\": \"REDMI NOTE 7 PRO, 64 GB\",\n        \"quantity\": \"9 pieces\",\n        \"price\": 900.00\n    }]\n}",
+          "content": "HTTP/1.1 200 OK\n{\n    \"id\": \"8743689\",\n    \"date\": \"2019/12/30\",\n    \"status\": \"PROCESSING\",\n    \"updatedOn\": \"2019/12/31\",\n    \"statusHistory\": [{\n        \"status\": \"RECEIVED\",\n        \"date\": \"2019/12/30\"\n    },{\n        \"status\": \"CONFIRMED\",\n        \"date\": \"2019/12/30\"\n    },{\n        \"status\": \"PROCESSING\",\n        \"date\": \"2019/12/31\"\n    }],\n    \"customer\": {\n        \"name\": \"Darvin Fleming\",\n        \"contact\": \"838877798797\",\n        \"billingAddress\": \"700 Arnold Street Pasadena, MD 21122\",\n        \"deliveryAddress\": \"585 Pawnee Circle Lanham, MD 20706\"\n    },\n    \"products\": [{\n        \"id\": \"832764\",\n        \"name\": \"REDMI NOTE 7 PRO, 64 GB\",\n        \"quantity\": \"9 pieces\",\n        \"price\": 900.00,\n        \"image\": \"https://resources.example.com/products/2187312.jpg\"\n    }]\n}",
           "type": "json"
         }
       ]
@@ -968,9 +863,9 @@
     },
     "error": {
       "fields": {
-        "401": [
+        "4xx": [
           {
-            "group": "401",
+            "group": "4xx",
             "type": "String",
             "optional": false,
             "field": "SessionExpired",
@@ -1176,9 +1071,9 @@
     },
     "error": {
       "fields": {
-        "401": [
+        "4xx": [
           {
-            "group": "401",
+            "group": "4xx",
             "type": "String",
             "optional": false,
             "field": "SessionExpired",
@@ -1348,9 +1243,9 @@
     },
     "error": {
       "fields": {
-        "401": [
+        "4xx": [
           {
-            "group": "401",
+            "group": "4xx",
             "type": "String",
             "optional": false,
             "field": "SessionExpired",
@@ -1602,15 +1497,6 @@
     },
     "error": {
       "fields": {
-        "401": [
-          {
-            "group": "401",
-            "type": "String",
-            "optional": false,
-            "field": "SessionExpired",
-            "description": "<p>User session has expired.</p>"
-          }
-        ],
         "6xx": [
           {
             "group": "6xx",
@@ -1625,6 +1511,15 @@
             "optional": false,
             "field": "GeneralError",
             "description": "<p>Any general / undefined error types will come under this category.</p>"
+          }
+        ],
+        "4xx": [
+          {
+            "group": "4xx",
+            "type": "String",
+            "optional": false,
+            "field": "SessionExpired",
+            "description": "<p>User session has expired.</p>"
           }
         ]
       },
@@ -1706,6 +1601,463 @@
         {
           "title": "AuthHeader",
           "content": "{\n    \"Authorization\": \"Bearer YWxhZGRpbjpvcGVuc2VzYW1l\"\n}",
+          "type": "json"
+        }
+      ]
+    }
+  },
+  {
+    "type": "GET",
+    "url": "/user/:userId",
+    "title": "Get User",
+    "description": "<p>Returns user information associated with the userid</p>",
+    "name": "GetUser",
+    "group": "User",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "userId",
+            "description": "<p>Unique ID of the user.</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "userId",
+            "description": "<p>Unique ID of the user.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "firstname",
+            "description": "<p>Firstname of the User.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "lastname",
+            "description": "<p>Lastname of the User.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "company",
+            "description": "<p>Company name of the User.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "email",
+            "description": "<p>Email address of the User.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "address",
+            "description": "<p>Address of the User.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "city",
+            "description": "<p>City of the User.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "state",
+            "description": "<p>State of the User.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "zip",
+            "description": "<p>Zipcode of the User.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "country",
+            "description": "<p>Country of the User.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "telephone",
+            "description": "<p>Telephone of the User.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "allowedValues": [
+              "\"TRIAL\"",
+              "\"PAID\"",
+              "\"EXPIRED\"",
+              "\"NOTACTIVATED\""
+            ],
+            "optional": false,
+            "field": "licenseStatus",
+            "defaultValue": "NOTACTIVATED",
+            "description": "<p>Indicates the users account status, whether it is in trail peroid, purchased, other not activated (payment failure) state.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "activationCode",
+            "description": "<p>Activation code of the user. This will be a valid GUID.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object[]",
+            "optional": false,
+            "field": "sites",
+            "description": "<p>List of sites available for the user.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "sites.token",
+            "description": "<p>Unique token of the site.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "sites.name",
+            "description": "<p>An identifiable name of the site.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n   \"userId\": \"9389\",\n   \"firstname\": \"John\",\n   \"lastname\": \"Doe\",\n   \"company\": \"Digital Mesh\",\n   \"email\": \"user@digitalmesh.com\",\n   \"address\": \"Address Line 1, Address Line 2\",\n   \"city\": \"Kochi\",\n   \"state\": \"Kerala\",\n   \"zip\": \"123456\",\n   \"country\" : \"India\",\n   \"telephone\": \"1234567900\",\n   \"licenseStatus\": \"PAID\",\n   \"activationCode\": \"3215Y-HSDHY7-328DH-GD72KJ\",\n   \"sites\": [{ \n       \"token\": \"9287-99JI-9843J-PUU398\",\n       \"name\": \"TextLocal\"\n   }]\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "4xx": [
+          {
+            "group": "4xx",
+            "optional": false,
+            "field": "InactiveAccount",
+            "description": "<p>The account is inactive. Please contact admin.</p>"
+          },
+          {
+            "group": "4xx",
+            "type": "String",
+            "optional": false,
+            "field": "SessionExpired",
+            "description": "<p>User session has expired.</p>"
+          }
+        ],
+        "6xx": [
+          {
+            "group": "6xx",
+            "type": "String",
+            "optional": false,
+            "field": "GeneralError",
+            "description": "<p>Any general / undefined error types will come under this category.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "InactiveAccount",
+          "content": "HTTP/1.1 403 InactiveAccount\n{\n   \"error\": \"The account is inactive. Please contact admin.\"\n}",
+          "type": "json"
+        },
+        {
+          "title": "SessionExpired",
+          "content": "HTTP/1.1 401 SessionExpired\n{\n    error: \"Your session has expired. Please sign-in again.\"  \n}",
+          "type": "json"
+        },
+        {
+          "title": "GeneralError",
+          "content": "HTTP/1.1 600 GeneralError\n{\n    error: \"An error occured. Please try again.\"  \n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "apis/user.js",
+    "groupTitle": "User",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "App-Version",
+            "description": "<p>Version of the application.</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Build-Number",
+            "description": "<p>The Build number of the application.</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Device-Type",
+            "description": "<p>Type of the device. iOS/Android.</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Device-OS-Version",
+            "description": "<p>Device OS version. Used during the time of removing app support for an OS Version.</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Currency",
+            "description": "<p>Currency based on device locale.</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>AuthToken received during login.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "CommonHeader",
+          "content": "{\n    \"App-Version\": \"0.0.1\",\n    \"Build-Number\": \"0.0.1\",\n    \"Device-Type\": \"Android\",\n    \"Device-OS-Version\": \"10.0.3\",\n    \"Currency\": \"$\"\n}",
+          "type": "json"
+        },
+        {
+          "title": "AuthHeader",
+          "content": "{\n    \"Authorization\": \"Bearer YWxhZGRpbjpvcGVuc2VzYW1l\"\n}",
+          "type": "json"
+        }
+      ]
+    }
+  },
+  {
+    "type": "POST",
+    "url": "/user/register",
+    "title": "Register User",
+    "description": "<p>Register a new user in the system</p>",
+    "name": "Register",
+    "group": "User",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "userId",
+            "description": "<p>Unique ID of the user.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "firstname",
+            "description": "<p>Firstname of the User.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "lastname",
+            "description": "<p>Lastname of the User.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "company",
+            "description": "<p>Company name of the User.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "email",
+            "description": "<p>Email address of the User.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "address",
+            "description": "<p>Address of the User.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "city",
+            "description": "<p>City of the User.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "state",
+            "description": "<p>State of the User.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "zip",
+            "description": "<p>Zipcode of the User.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "country",
+            "description": "<p>Country of the User.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "telephone",
+            "description": "<p>Telephone of the User.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "password",
+            "description": "<p>Password of the user, will be a base64 string.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Request-Example:",
+          "content": "{\n   \"firstname\": \"John\",\n   \"lastname\": \"Doe\",\n   \"company\": \"Digital Mesh\",\n   \"email\": \"user@digitalmesh.com\",\n   \"address\": \"Address Line 1, Address Line 2\",\n   \"city\": \"Kochi\",\n   \"state\": \"Kerala\",\n   \"zip\": \"123456\",\n   \"country\" : \"India\",\n   \"telephone\": \"1234567900\",\n   \"password\": \"UGFzc3dvcmQxMjMj\",\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "userId",
+            "description": "<p>Unique ID of the user.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n   \"userId\": \"9389\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "apis/user.js",
+    "groupTitle": "User",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "App-Version",
+            "description": "<p>Version of the application.</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Build-Number",
+            "description": "<p>The Build number of the application.</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Device-Type",
+            "description": "<p>Type of the device. iOS/Android.</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Device-OS-Version",
+            "description": "<p>Device OS version. Used during the time of removing app support for an OS Version.</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Currency",
+            "description": "<p>Currency based on device locale.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "CommonHeader",
+          "content": "{\n    \"App-Version\": \"0.0.1\",\n    \"Build-Number\": \"0.0.1\",\n    \"Device-Type\": \"Android\",\n    \"Device-OS-Version\": \"10.0.3\",\n    \"Currency\": \"$\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "6xx": [
+          {
+            "group": "6xx",
+            "type": "String",
+            "optional": false,
+            "field": "GeneralError",
+            "description": "<p>Any general / undefined error types will come under this category.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "GeneralError",
+          "content": "HTTP/1.1 600 GeneralError\n{\n    error: \"An error occured. Please try again.\"  \n}",
           "type": "json"
         }
       ]
