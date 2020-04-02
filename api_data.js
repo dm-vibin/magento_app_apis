@@ -88,7 +88,7 @@ define({ "api": [
         },
         {
           "title": "GeneralError",
-          "content": "HTTP/1.1 600 GeneralError\n{\n    error: \"An error occured. Please try again.\"  \n}",
+          "content": "HTTP/1.1 600 GeneralError\n{\n    error: \"An error occured. Please try again.\"\n}",
           "type": "json"
         }
       ]
@@ -140,6 +140,132 @@ define({ "api": [
         {
           "title": "CommonHeader",
           "content": "{\n    \"App-Version\": \"0.0.1\",\n    \"Build-Number\": \"0.0.1\",\n    \"Device-Type\": \"Android\",\n    \"Device-OS-Version\": \"10.0.3\",\n    \"Currency\": \"$\"\n}",
+          "type": "json"
+        }
+      ]
+    }
+  },
+  {
+    "type": "POST",
+    "url": "/account/resetpassword",
+    "title": "ResetPassword",
+    "description": "<p>Helps the user to reset the password in the system.</p>",
+    "name": "ResetPassword",
+    "group": "Account",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "email",
+            "description": "<p>Registered email of the user in system.</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>Success message.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n   message: \"Success\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "apis/account.js",
+    "groupTitle": "Account",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "App-Version",
+            "description": "<p>Version of the application.</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Build-Number",
+            "description": "<p>The Build number of the application.</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Device-Type",
+            "description": "<p>Type of the device. iOS/Android.</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Device-OS-Version",
+            "description": "<p>Device OS version. Used during the time of removing app support for an OS Version.</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Currency",
+            "description": "<p>Currency based on device locale.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "CommonHeader",
+          "content": "{\n    \"App-Version\": \"0.0.1\",\n    \"Build-Number\": \"0.0.1\",\n    \"Device-Type\": \"Android\",\n    \"Device-OS-Version\": \"10.0.3\",\n    \"Currency\": \"$\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "6xx": [
+          {
+            "group": "6xx",
+            "type": "String",
+            "optional": false,
+            "field": "GeneralError",
+            "description": "<p>Any general / undefined error types will come under this category.</p>"
+          }
+        ],
+        "4xx": [
+          {
+            "group": "4xx",
+            "type": "String",
+            "optional": false,
+            "field": "InactiveAccount",
+            "description": "<p>The account is inactive. Please contact admin.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "GeneralError",
+          "content": "HTTP/1.1 600 GeneralError\n{\n    error: \"An error occured. Please try again.\"\n}",
+          "type": "json"
+        },
+        {
+          "title": "InactiveAccount",
+          "content": "HTTP/1.1 403 InactiveAccount\n{\n   \"error\": \"The account is inactive. Please contact admin.\"\n}",
           "type": "json"
         }
       ]
@@ -373,6 +499,13 @@ define({ "api": [
             "optional": false,
             "field": "SessionExpired",
             "description": "<p>User session has expired.</p>"
+          },
+          {
+            "group": "4xx",
+            "type": "String",
+            "optional": false,
+            "field": "InactiveAccount",
+            "description": "<p>The account is inactive. Please contact admin.</p>"
           }
         ],
         "6xx": [
@@ -395,17 +528,22 @@ define({ "api": [
       "examples": [
         {
           "title": "SessionExpired",
-          "content": "HTTP/1.1 401 SessionExpired\n{\n    error: \"Your session has expired. Please sign-in again.\"  \n}",
+          "content": "HTTP/1.1 401 SessionExpired\n{\n    error: \"Your session has expired. Please sign-in again.\"\n}",
           "type": "json"
         },
         {
           "title": "GeneralError",
-          "content": "HTTP/1.1 600 GeneralError\n{\n    error: \"An error occured. Please try again.\"  \n}",
+          "content": "HTTP/1.1 600 GeneralError\n{\n    error: \"An error occured. Please try again.\"\n}",
           "type": "json"
         },
         {
           "title": "MagentoNoPermission",
-          "content": "HTTP/1.1 602 MagentoNoPermission\n{\n    error: \"The app doesnot have sufficient permissions to access the information.\"  \n}",
+          "content": "HTTP/1.1 602 MagentoNoPermission\n{\n    error: \"The app doesnot have sufficient permissions to access the information.\"\n}",
+          "type": "json"
+        },
+        {
+          "title": "InactiveAccount",
+          "content": "HTTP/1.1 403 InactiveAccount\n{\n   \"error\": \"The account is inactive. Please contact admin.\"\n}",
           "type": "json"
         }
       ]
@@ -593,6 +731,13 @@ define({ "api": [
             "optional": false,
             "field": "SessionExpired",
             "description": "<p>User session has expired.</p>"
+          },
+          {
+            "group": "4xx",
+            "type": "String",
+            "optional": false,
+            "field": "InactiveAccount",
+            "description": "<p>The account is inactive. Please contact admin.</p>"
           }
         ],
         "6xx": [
@@ -615,17 +760,22 @@ define({ "api": [
       "examples": [
         {
           "title": "SessionExpired",
-          "content": "HTTP/1.1 401 SessionExpired\n{\n    error: \"Your session has expired. Please sign-in again.\"  \n}",
+          "content": "HTTP/1.1 401 SessionExpired\n{\n    error: \"Your session has expired. Please sign-in again.\"\n}",
           "type": "json"
         },
         {
           "title": "GeneralError",
-          "content": "HTTP/1.1 600 GeneralError\n{\n    error: \"An error occured. Please try again.\"  \n}",
+          "content": "HTTP/1.1 600 GeneralError\n{\n    error: \"An error occured. Please try again.\"\n}",
           "type": "json"
         },
         {
           "title": "MagentoNoPermission",
-          "content": "HTTP/1.1 602 MagentoNoPermission\n{\n    error: \"The app doesnot have sufficient permissions to access the information.\"  \n}",
+          "content": "HTTP/1.1 602 MagentoNoPermission\n{\n    error: \"The app doesnot have sufficient permissions to access the information.\"\n}",
+          "type": "json"
+        },
+        {
+          "title": "InactiveAccount",
+          "content": "HTTP/1.1 403 InactiveAccount\n{\n   \"error\": \"The account is inactive. Please contact admin.\"\n}",
           "type": "json"
         }
       ]
@@ -870,6 +1020,13 @@ define({ "api": [
             "optional": false,
             "field": "SessionExpired",
             "description": "<p>User session has expired.</p>"
+          },
+          {
+            "group": "4xx",
+            "type": "String",
+            "optional": false,
+            "field": "InactiveAccount",
+            "description": "<p>The account is inactive. Please contact admin.</p>"
           }
         ],
         "6xx": [
@@ -892,17 +1049,22 @@ define({ "api": [
       "examples": [
         {
           "title": "SessionExpired",
-          "content": "HTTP/1.1 401 SessionExpired\n{\n    error: \"Your session has expired. Please sign-in again.\"  \n}",
+          "content": "HTTP/1.1 401 SessionExpired\n{\n    error: \"Your session has expired. Please sign-in again.\"\n}",
           "type": "json"
         },
         {
           "title": "GeneralError",
-          "content": "HTTP/1.1 600 GeneralError\n{\n    error: \"An error occured. Please try again.\"  \n}",
+          "content": "HTTP/1.1 600 GeneralError\n{\n    error: \"An error occured. Please try again.\"\n}",
           "type": "json"
         },
         {
           "title": "MagentoNoPermission",
-          "content": "HTTP/1.1 602 MagentoNoPermission\n{\n    error: \"The app doesnot have sufficient permissions to access the information.\"  \n}",
+          "content": "HTTP/1.1 602 MagentoNoPermission\n{\n    error: \"The app doesnot have sufficient permissions to access the information.\"\n}",
+          "type": "json"
+        },
+        {
+          "title": "InactiveAccount",
+          "content": "HTTP/1.1 403 InactiveAccount\n{\n   \"error\": \"The account is inactive. Please contact admin.\"\n}",
           "type": "json"
         }
       ]
@@ -1078,6 +1240,13 @@ define({ "api": [
             "optional": false,
             "field": "SessionExpired",
             "description": "<p>User session has expired.</p>"
+          },
+          {
+            "group": "4xx",
+            "type": "String",
+            "optional": false,
+            "field": "InactiveAccount",
+            "description": "<p>The account is inactive. Please contact admin.</p>"
           }
         ],
         "6xx": [
@@ -1100,17 +1269,22 @@ define({ "api": [
       "examples": [
         {
           "title": "SessionExpired",
-          "content": "HTTP/1.1 401 SessionExpired\n{\n    error: \"Your session has expired. Please sign-in again.\"  \n}",
+          "content": "HTTP/1.1 401 SessionExpired\n{\n    error: \"Your session has expired. Please sign-in again.\"\n}",
           "type": "json"
         },
         {
           "title": "GeneralError",
-          "content": "HTTP/1.1 600 GeneralError\n{\n    error: \"An error occured. Please try again.\"  \n}",
+          "content": "HTTP/1.1 600 GeneralError\n{\n    error: \"An error occured. Please try again.\"\n}",
           "type": "json"
         },
         {
           "title": "MagentoNoPermission",
-          "content": "HTTP/1.1 602 MagentoNoPermission\n{\n    error: \"The app doesnot have sufficient permissions to access the information.\"  \n}",
+          "content": "HTTP/1.1 602 MagentoNoPermission\n{\n    error: \"The app doesnot have sufficient permissions to access the information.\"\n}",
+          "type": "json"
+        },
+        {
+          "title": "InactiveAccount",
+          "content": "HTTP/1.1 403 InactiveAccount\n{\n   \"error\": \"The account is inactive. Please contact admin.\"\n}",
           "type": "json"
         }
       ]
@@ -1250,6 +1424,13 @@ define({ "api": [
             "optional": false,
             "field": "SessionExpired",
             "description": "<p>User session has expired.</p>"
+          },
+          {
+            "group": "4xx",
+            "type": "String",
+            "optional": false,
+            "field": "InactiveAccount",
+            "description": "<p>The account is inactive. Please contact admin.</p>"
           }
         ],
         "6xx": [
@@ -1272,17 +1453,22 @@ define({ "api": [
       "examples": [
         {
           "title": "SessionExpired",
-          "content": "HTTP/1.1 401 SessionExpired\n{\n    error: \"Your session has expired. Please sign-in again.\"  \n}",
+          "content": "HTTP/1.1 401 SessionExpired\n{\n    error: \"Your session has expired. Please sign-in again.\"\n}",
           "type": "json"
         },
         {
           "title": "GeneralError",
-          "content": "HTTP/1.1 600 GeneralError\n{\n    error: \"An error occured. Please try again.\"  \n}",
+          "content": "HTTP/1.1 600 GeneralError\n{\n    error: \"An error occured. Please try again.\"\n}",
           "type": "json"
         },
         {
           "title": "MagentoNoPermission",
-          "content": "HTTP/1.1 602 MagentoNoPermission\n{\n    error: \"The app doesnot have sufficient permissions to access the information.\"  \n}",
+          "content": "HTTP/1.1 602 MagentoNoPermission\n{\n    error: \"The app doesnot have sufficient permissions to access the information.\"\n}",
+          "type": "json"
+        },
+        {
+          "title": "InactiveAccount",
+          "content": "HTTP/1.1 403 InactiveAccount\n{\n   \"error\": \"The account is inactive. Please contact admin.\"\n}",
           "type": "json"
         }
       ]
@@ -1520,6 +1706,13 @@ define({ "api": [
             "optional": false,
             "field": "SessionExpired",
             "description": "<p>User session has expired.</p>"
+          },
+          {
+            "group": "4xx",
+            "type": "String",
+            "optional": false,
+            "field": "InactiveAccount",
+            "description": "<p>The account is inactive. Please contact admin.</p>"
           }
         ]
       },
@@ -1531,12 +1724,17 @@ define({ "api": [
         },
         {
           "title": "SessionExpired",
-          "content": "HTTP/1.1 401 SessionExpired\n{\n    error: \"Your session has expired. Please sign-in again.\"  \n}",
+          "content": "HTTP/1.1 401 SessionExpired\n{\n    error: \"Your session has expired. Please sign-in again.\"\n}",
           "type": "json"
         },
         {
           "title": "GeneralError",
-          "content": "HTTP/1.1 600 GeneralError\n{\n    error: \"An error occured. Please try again.\"  \n}",
+          "content": "HTTP/1.1 600 GeneralError\n{\n    error: \"An error occured. Please try again.\"\n}",
+          "type": "json"
+        },
+        {
+          "title": "InactiveAccount",
+          "content": "HTTP/1.1 403 InactiveAccount\n{\n   \"error\": \"The account is inactive. Please contact admin.\"\n}",
           "type": "json"
         }
       ]
@@ -1753,52 +1951,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n   \"userId\": \"9389\",\n   \"firstname\": \"John\",\n   \"lastname\": \"Doe\",\n   \"company\": \"Digital Mesh\",\n   \"email\": \"user@digitalmesh.com\",\n   \"address\": \"Address Line 1, Address Line 2\",\n   \"city\": \"Kochi\",\n   \"state\": \"Kerala\",\n   \"zip\": \"123456\",\n   \"country\" : \"India\",\n   \"telephone\": \"1234567900\",\n   \"licenseStatus\": \"PAID\",\n   \"activationCode\": \"3215Y-HSDHY7-328DH-GD72KJ\",\n   \"sites\": [{ \n       \"token\": \"9287-99JI-9843J-PUU398\",\n       \"name\": \"TextLocal\"\n   }]\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "error": {
-      "fields": {
-        "4xx": [
-          {
-            "group": "4xx",
-            "optional": false,
-            "field": "InactiveAccount",
-            "description": "<p>The account is inactive. Please contact admin.</p>"
-          },
-          {
-            "group": "4xx",
-            "type": "String",
-            "optional": false,
-            "field": "SessionExpired",
-            "description": "<p>User session has expired.</p>"
-          }
-        ],
-        "6xx": [
-          {
-            "group": "6xx",
-            "type": "String",
-            "optional": false,
-            "field": "GeneralError",
-            "description": "<p>Any general / undefined error types will come under this category.</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "InactiveAccount",
-          "content": "HTTP/1.1 403 InactiveAccount\n{\n   \"error\": \"The account is inactive. Please contact admin.\"\n}",
-          "type": "json"
-        },
-        {
-          "title": "SessionExpired",
-          "content": "HTTP/1.1 401 SessionExpired\n{\n    error: \"Your session has expired. Please sign-in again.\"  \n}",
-          "type": "json"
-        },
-        {
-          "title": "GeneralError",
-          "content": "HTTP/1.1 600 GeneralError\n{\n    error: \"An error occured. Please try again.\"  \n}",
+          "content": "HTTP/1.1 200 OK\n{\n   \"userId\": \"9389\",\n   \"firstname\": \"John\",\n   \"lastname\": \"Doe\",\n   \"company\": \"Digital Mesh\",\n   \"email\": \"user@digitalmesh.com\",\n   \"address\": \"Address Line 1, Address Line 2\",\n   \"city\": \"Kochi\",\n   \"state\": \"Kerala\",\n   \"zip\": \"123456\",\n   \"country\" : \"India\",\n   \"telephone\": \"1234567900\",\n   \"licenseStatus\": \"PAID\",\n   \"activationCode\": \"3215Y-HSDHY7-328DH-GD72KJ\",\n   \"sites\": [{ \n      \"token\": \"9287-99JI-9843J-PUU398\",\n      \"name\": \"TextLocal\"\n   }]\n}",
           "type": "json"
         }
       ]
@@ -1862,6 +2015,52 @@ define({ "api": [
         {
           "title": "AuthHeader",
           "content": "{\n    \"Authorization\": \"Bearer YWxhZGRpbjpvcGVuc2VzYW1l\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "4xx": [
+          {
+            "group": "4xx",
+            "type": "String",
+            "optional": false,
+            "field": "InactiveAccount",
+            "description": "<p>The account is inactive. Please contact admin.</p>"
+          },
+          {
+            "group": "4xx",
+            "type": "String",
+            "optional": false,
+            "field": "SessionExpired",
+            "description": "<p>User session has expired.</p>"
+          }
+        ],
+        "6xx": [
+          {
+            "group": "6xx",
+            "type": "String",
+            "optional": false,
+            "field": "GeneralError",
+            "description": "<p>Any general / undefined error types will come under this category.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "InactiveAccount",
+          "content": "HTTP/1.1 403 InactiveAccount\n{\n   \"error\": \"The account is inactive. Please contact admin.\"\n}",
+          "type": "json"
+        },
+        {
+          "title": "SessionExpired",
+          "content": "HTTP/1.1 401 SessionExpired\n{\n    error: \"Your session has expired. Please sign-in again.\"\n}",
+          "type": "json"
+        },
+        {
+          "title": "GeneralError",
+          "content": "HTTP/1.1 600 GeneralError\n{\n    error: \"An error occured. Please try again.\"\n}",
           "type": "json"
         }
       ]
@@ -2057,7 +2256,360 @@ define({ "api": [
       "examples": [
         {
           "title": "GeneralError",
-          "content": "HTTP/1.1 600 GeneralError\n{\n    error: \"An error occured. Please try again.\"  \n}",
+          "content": "HTTP/1.1 600 GeneralError\n{\n    error: \"An error occured. Please try again.\"\n}",
+          "type": "json"
+        }
+      ]
+    }
+  },
+  {
+    "type": "PATCH",
+    "url": "/user/:userId",
+    "title": "Update User",
+    "description": "<p>Updates the user profile information</p>",
+    "name": "Update_User",
+    "group": "User",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "userId",
+            "description": "<p>Unique ID of the user.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "firstname",
+            "description": "<p>Firstname of the User.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "lastname",
+            "description": "<p>Lastname of the User.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "company",
+            "description": "<p>Company name of the User.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "email",
+            "description": "<p>Email address of the User.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "address",
+            "description": "<p>Address of the User.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "city",
+            "description": "<p>City of the User.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "state",
+            "description": "<p>State of the User.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "zip",
+            "description": "<p>Zipcode of the User.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "country",
+            "description": "<p>Country of the User.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "telephone",
+            "description": "<p>Telephone of the User.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Request-Example:",
+          "content": "{\n   \"firstname\": \"John\",\n   \"lastname\": \"Doe\",\n   \"company\": \"Digital Mesh\",\n   \"email\": \"user@digitalmesh.com\",\n   \"address\": \"Address Line 1, Address Line 2\",\n   \"city\": \"Kochi\",\n   \"state\": \"Kerala\",\n   \"zip\": \"123456\",\n   \"country\" : \"India\",\n   \"telephone\": \"1234567900\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "userId",
+            "description": "<p>Unique ID of the user.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n   \"userId\": \"9389\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "apis/user.js",
+    "groupTitle": "User",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "App-Version",
+            "description": "<p>Version of the application.</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Build-Number",
+            "description": "<p>The Build number of the application.</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Device-Type",
+            "description": "<p>Type of the device. iOS/Android.</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Device-OS-Version",
+            "description": "<p>Device OS version. Used during the time of removing app support for an OS Version.</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Currency",
+            "description": "<p>Currency based on device locale.</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>AuthToken received during login.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "CommonHeader",
+          "content": "{\n    \"App-Version\": \"0.0.1\",\n    \"Build-Number\": \"0.0.1\",\n    \"Device-Type\": \"Android\",\n    \"Device-OS-Version\": \"10.0.3\",\n    \"Currency\": \"$\"\n}",
+          "type": "json"
+        },
+        {
+          "title": "AuthHeader",
+          "content": "{\n    \"Authorization\": \"Bearer YWxhZGRpbjpvcGVuc2VzYW1l\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "4xx": [
+          {
+            "group": "4xx",
+            "type": "String",
+            "optional": false,
+            "field": "InactiveAccount",
+            "description": "<p>The account is inactive. Please contact admin.</p>"
+          },
+          {
+            "group": "4xx",
+            "type": "String",
+            "optional": false,
+            "field": "SessionExpired",
+            "description": "<p>User session has expired.</p>"
+          }
+        ],
+        "6xx": [
+          {
+            "group": "6xx",
+            "type": "String",
+            "optional": false,
+            "field": "GeneralError",
+            "description": "<p>Any general / undefined error types will come under this category.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "InactiveAccount",
+          "content": "HTTP/1.1 403 InactiveAccount\n{\n   \"error\": \"The account is inactive. Please contact admin.\"\n}",
+          "type": "json"
+        },
+        {
+          "title": "SessionExpired",
+          "content": "HTTP/1.1 401 SessionExpired\n{\n    error: \"Your session has expired. Please sign-in again.\"\n}",
+          "type": "json"
+        },
+        {
+          "title": "GeneralError",
+          "content": "HTTP/1.1 600 GeneralError\n{\n    error: \"An error occured. Please try again.\"\n}",
+          "type": "json"
+        }
+      ]
+    }
+  },
+  {
+    "type": "POST",
+    "url": "/user/verifyemail",
+    "title": "VerifyEmail",
+    "description": "<p>Generate and send verification link for verifying email address of the user.</p>",
+    "name": "VerifyEmail",
+    "group": "User",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "email",
+            "description": "<p>Email address provided by the user.</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>Please verify email by clicking the link send to the address <code>email</code></p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n   message: \"We have sent a verification email to your email address. Please follow the instructions in the email to verify your account.\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "apis/user.js",
+    "groupTitle": "User",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "App-Version",
+            "description": "<p>Version of the application.</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Build-Number",
+            "description": "<p>The Build number of the application.</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Device-Type",
+            "description": "<p>Type of the device. iOS/Android.</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Device-OS-Version",
+            "description": "<p>Device OS version. Used during the time of removing app support for an OS Version.</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Currency",
+            "description": "<p>Currency based on device locale.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "CommonHeader",
+          "content": "{\n    \"App-Version\": \"0.0.1\",\n    \"Build-Number\": \"0.0.1\",\n    \"Device-Type\": \"Android\",\n    \"Device-OS-Version\": \"10.0.3\",\n    \"Currency\": \"$\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "6xx": [
+          {
+            "group": "6xx",
+            "type": "String",
+            "optional": false,
+            "field": "GeneralError",
+            "description": "<p>Any general / undefined error types will come under this category.</p>"
+          }
+        ],
+        "4xx": [
+          {
+            "group": "4xx",
+            "type": "String",
+            "optional": false,
+            "field": "InactiveAccount",
+            "description": "<p>The account is inactive. Please contact admin.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "GeneralError",
+          "content": "HTTP/1.1 600 GeneralError\n{\n    error: \"An error occured. Please try again.\"\n}",
+          "type": "json"
+        },
+        {
+          "title": "InactiveAccount",
+          "content": "HTTP/1.1 403 InactiveAccount\n{\n   \"error\": \"The account is inactive. Please contact admin.\"\n}",
           "type": "json"
         }
       ]
