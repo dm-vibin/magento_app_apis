@@ -2030,8 +2030,15 @@ define({ "api": [
             "group": "Success 200",
             "type": "String",
             "optional": false,
-            "field": "address",
-            "description": "<p>Address of the User.</p>"
+            "field": "addressLine1",
+            "description": "<p>Address line 1 of the User.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "addressLine2",
+            "description": "<p>Address line 2 of the User.</p>"
           },
           {
             "group": "Success 200",
@@ -2115,7 +2122,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n   \"userId\": \"9389\",\n   \"firstname\": \"John\",\n   \"lastname\": \"Doe\",\n   \"company\": \"Digital Mesh\",\n   \"email\": \"user@digitalmesh.com\",\n   \"address\": \"Address Line 1, Address Line 2\",\n   \"city\": \"Kochi\",\n   \"state\": \"Kerala\",\n   \"zip\": \"123456\",\n   \"country\" : \"India\",\n   \"telephone\": \"1234567900\",\n   \"licenseStatus\": \"PAID\",\n   \"activationCode\": \"3215Y-HSDHY7-328DH-GD72KJ\",\n   \"sites\": [{ \n      \"token\": \"9287-99JI-9843J-PUU398\",\n      \"name\": \"TextLocal\"\n   }]\n}",
+          "content": "HTTP/1.1 200 OK\n{\n   \"userId\": \"9389\",\n   \"firstname\": \"John\",\n   \"lastname\": \"Doe\",\n   \"company\": \"Digital Mesh\",\n   \"email\": \"user@digitalmesh.com\",\n   \"addressLine1\": \"Address Line 1\",\n   \"addressLine2\": \"Address Line 2\",\n   \"city\": \"Kochi\",\n   \"state\": \"Kerala\",\n   \"zip\": \"123456\",\n   \"country\" : \"India\",\n   \"telephone\": \"1234567900\",\n   \"licenseStatus\": \"PAID\",\n   \"activationCode\": \"3215Y-HSDHY7-328DH-GD72KJ\",\n   \"sites\": [{ \n      \"token\": \"9287-99JI-9843J-PUU398\",\n      \"name\": \"TextLocal\"\n   }]\n}",
           "type": "json"
         }
       ]
@@ -2475,8 +2482,15 @@ define({ "api": [
             "group": "Parameter",
             "type": "String",
             "optional": false,
-            "field": "address",
-            "description": "<p>Address of the User.</p>"
+            "field": "addressLine1",
+            "description": "<p>Address line 1 of the User.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "addressLine2",
+            "description": "<p>Address line 2 of the User.</p>"
           },
           {
             "group": "Parameter",
@@ -2518,7 +2532,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Request-Example:",
-          "content": "{\n   \"firstname\": \"John\",\n   \"lastname\": \"Doe\",\n   \"company\": \"Digital Mesh\",\n   \"email\": \"user@digitalmesh.com\",\n   \"address\": \"Address Line 1, Address Line 2\",\n   \"city\": \"Kochi\",\n   \"state\": \"Kerala\",\n   \"zip\": \"123456\",\n   \"country\" : \"India\",\n   \"telephone\": \"1234567900\"\n}",
+          "content": "{\n   \"firstname\": \"John\",\n   \"lastname\": \"Doe\",\n   \"company\": \"Digital Mesh\",\n   \"email\": \"user@digitalmesh.com\",\n   \"addressLine1\": \"Address Line 1\",\n   \"addressLine2\": \"Address Line 2\",\n   \"city\": \"Kochi\",\n   \"state\": \"Kerala\",\n   \"zip\": \"123456\",\n   \"country\" : \"India\",\n   \"telephone\": \"1234567900\"\n}",
           "type": "json"
         }
       ]
