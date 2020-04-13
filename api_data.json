@@ -2286,8 +2286,15 @@
             "group": "Parameter",
             "type": "String",
             "optional": false,
-            "field": "address",
-            "description": "<p>Address of the User.</p>"
+            "field": "addressLine1",
+            "description": "<p>Address line 1 of the User.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "addressLine2",
+            "description": "<p>Address line 2 of the User.</p>"
           },
           {
             "group": "Parameter",
@@ -2336,7 +2343,7 @@
       "examples": [
         {
           "title": "Request-Example:",
-          "content": "{\n   \"firstname\": \"John\",\n   \"lastname\": \"Doe\",\n   \"company\": \"Digital Mesh\",\n   \"email\": \"user@digitalmesh.com\",\n   \"address\": \"Address Line 1, Address Line 2\",\n   \"city\": \"Kochi\",\n   \"state\": \"Kerala\",\n   \"zip\": \"123456\",\n   \"country\" : \"India\",\n   \"telephone\": \"1234567900\",\n   \"password\": \"UGFzc3dvcmQxMjMj\",\n}",
+          "content": "{\n   \"firstname\": \"John\",\n   \"lastname\": \"Doe\",\n   \"company\": \"Digital Mesh\",\n   \"email\": \"user@digitalmesh.com\",\n   \"addressLine1\": \"Address Line 1\",\n   \"addressLine2\": \"Address Line 2\",\n   \"city\": \"Kochi\",\n   \"state\": \"Kerala\",\n   \"zip\": \"123456\",\n   \"country\" : \"India\",\n   \"telephone\": \"1234567900\",\n   \"password\": \"UGFzc3dvcmQxMjMj\",\n}",
           "type": "json"
         }
       ]
