@@ -131,15 +131,15 @@ define({ "api": [
             "group": "Header",
             "type": "String",
             "optional": false,
-            "field": "Currency",
-            "description": "<p>Currency based on device locale.</p>"
+            "field": "Device-Identifier",
+            "description": "<p>Device token to send push notifictions.</p>"
           }
         ]
       },
       "examples": [
         {
           "title": "CommonHeader",
-          "content": "{\n    \"App-Version\": \"0.0.1\",\n    \"Build-Number\": \"0.0.1\",\n    \"Device-Type\": \"Android\",\n    \"Device-OS-Version\": \"10.0.3\",\n    \"Currency\": \"$\"\n}",
+          "content": "{\n    \"App-Version\": \"0.0.1\",\n    \"Build-Number\": \"0.0.1\",\n    \"Device-Type\": \"Android\",\n    \"Device-OS-Version\": \"10.0.3\",\n    \"Device-Identifier\": \"34889-3248687-324876-324987-324876\"\n}",
           "type": "json"
         }
       ]
@@ -223,15 +223,15 @@ define({ "api": [
             "group": "Header",
             "type": "String",
             "optional": false,
-            "field": "Currency",
-            "description": "<p>Currency based on device locale.</p>"
+            "field": "Device-Identifier",
+            "description": "<p>Device token to send push notifictions.</p>"
           }
         ]
       },
       "examples": [
         {
           "title": "CommonHeader",
-          "content": "{\n    \"App-Version\": \"0.0.1\",\n    \"Build-Number\": \"0.0.1\",\n    \"Device-Type\": \"Android\",\n    \"Device-OS-Version\": \"10.0.3\",\n    \"Currency\": \"$\"\n}",
+          "content": "{\n    \"App-Version\": \"0.0.1\",\n    \"Build-Number\": \"0.0.1\",\n    \"Device-Type\": \"Android\",\n    \"Device-OS-Version\": \"10.0.3\",\n    \"Device-Identifier\": \"34889-3248687-324876-324987-324876\"\n}",
           "type": "json"
         }
       ]
@@ -325,8 +325,8 @@ define({ "api": [
             "group": "Header",
             "type": "String",
             "optional": false,
-            "field": "Currency",
-            "description": "<p>Currency based on device locale.</p>"
+            "field": "Device-Identifier",
+            "description": "<p>Device token to send push notifictions.</p>"
           },
           {
             "group": "Header",
@@ -340,7 +340,7 @@ define({ "api": [
       "examples": [
         {
           "title": "CommonHeader",
-          "content": "{\n    \"App-Version\": \"0.0.1\",\n    \"Build-Number\": \"0.0.1\",\n    \"Device-Type\": \"Android\",\n    \"Device-OS-Version\": \"10.0.3\",\n    \"Currency\": \"$\"\n}",
+          "content": "{\n    \"App-Version\": \"0.0.1\",\n    \"Build-Number\": \"0.0.1\",\n    \"Device-Type\": \"Android\",\n    \"Device-OS-Version\": \"10.0.3\",\n    \"Device-Identifier\": \"34889-3248687-324876-324987-324876\"\n}",
           "type": "json"
         },
         {
@@ -465,8 +465,8 @@ define({ "api": [
             "group": "Header",
             "type": "String",
             "optional": false,
-            "field": "Currency",
-            "description": "<p>Currency based on device locale.</p>"
+            "field": "Device-Identifier",
+            "description": "<p>Device token to send push notifictions.</p>"
           },
           {
             "group": "Header",
@@ -480,7 +480,7 @@ define({ "api": [
       "examples": [
         {
           "title": "CommonHeader",
-          "content": "{\n    \"App-Version\": \"0.0.1\",\n    \"Build-Number\": \"0.0.1\",\n    \"Device-Type\": \"Android\",\n    \"Device-OS-Version\": \"10.0.3\",\n    \"Currency\": \"$\"\n}",
+          "content": "{\n    \"App-Version\": \"0.0.1\",\n    \"Build-Number\": \"0.0.1\",\n    \"Device-Type\": \"Android\",\n    \"Device-OS-Version\": \"10.0.3\",\n    \"Device-Identifier\": \"34889-3248687-324876-324987-324876\"\n}",
           "type": "json"
         },
         {
@@ -697,8 +697,8 @@ define({ "api": [
             "group": "Header",
             "type": "String",
             "optional": false,
-            "field": "Currency",
-            "description": "<p>Currency based on device locale.</p>"
+            "field": "Device-Identifier",
+            "description": "<p>Device token to send push notifictions.</p>"
           },
           {
             "group": "Header",
@@ -712,7 +712,7 @@ define({ "api": [
       "examples": [
         {
           "title": "CommonHeader",
-          "content": "{\n    \"App-Version\": \"0.0.1\",\n    \"Build-Number\": \"0.0.1\",\n    \"Device-Type\": \"Android\",\n    \"Device-OS-Version\": \"10.0.3\",\n    \"Currency\": \"$\"\n}",
+          "content": "{\n    \"App-Version\": \"0.0.1\",\n    \"Build-Number\": \"0.0.1\",\n    \"Device-Type\": \"Android\",\n    \"Device-OS-Version\": \"10.0.3\",\n    \"Device-Identifier\": \"34889-3248687-324876-324987-324876\"\n}",
           "type": "json"
         },
         {
@@ -986,8 +986,8 @@ define({ "api": [
             "group": "Header",
             "type": "String",
             "optional": false,
-            "field": "Currency",
-            "description": "<p>Currency based on device locale.</p>"
+            "field": "Device-Identifier",
+            "description": "<p>Device token to send push notifictions.</p>"
           },
           {
             "group": "Header",
@@ -1001,7 +1001,7 @@ define({ "api": [
       "examples": [
         {
           "title": "CommonHeader",
-          "content": "{\n    \"App-Version\": \"0.0.1\",\n    \"Build-Number\": \"0.0.1\",\n    \"Device-Type\": \"Android\",\n    \"Device-OS-Version\": \"10.0.3\",\n    \"Currency\": \"$\"\n}",
+          "content": "{\n    \"App-Version\": \"0.0.1\",\n    \"Build-Number\": \"0.0.1\",\n    \"Device-Type\": \"Android\",\n    \"Device-OS-Version\": \"10.0.3\",\n    \"Device-Identifier\": \"34889-3248687-324876-324987-324876\"\n}",
           "type": "json"
         },
         {
@@ -1206,8 +1206,8 @@ define({ "api": [
             "group": "Header",
             "type": "String",
             "optional": false,
-            "field": "Currency",
-            "description": "<p>Currency based on device locale.</p>"
+            "field": "Device-Identifier",
+            "description": "<p>Device token to send push notifictions.</p>"
           },
           {
             "group": "Header",
@@ -1221,7 +1221,7 @@ define({ "api": [
       "examples": [
         {
           "title": "CommonHeader",
-          "content": "{\n    \"App-Version\": \"0.0.1\",\n    \"Build-Number\": \"0.0.1\",\n    \"Device-Type\": \"Android\",\n    \"Device-OS-Version\": \"10.0.3\",\n    \"Currency\": \"$\"\n}",
+          "content": "{\n    \"App-Version\": \"0.0.1\",\n    \"Build-Number\": \"0.0.1\",\n    \"Device-Type\": \"Android\",\n    \"Device-OS-Version\": \"10.0.3\",\n    \"Device-Identifier\": \"34889-3248687-324876-324987-324876\"\n}",
           "type": "json"
         },
         {
@@ -1390,8 +1390,8 @@ define({ "api": [
             "group": "Header",
             "type": "String",
             "optional": false,
-            "field": "Currency",
-            "description": "<p>Currency based on device locale.</p>"
+            "field": "Device-Identifier",
+            "description": "<p>Device token to send push notifictions.</p>"
           },
           {
             "group": "Header",
@@ -1405,7 +1405,7 @@ define({ "api": [
       "examples": [
         {
           "title": "CommonHeader",
-          "content": "{\n    \"App-Version\": \"0.0.1\",\n    \"Build-Number\": \"0.0.1\",\n    \"Device-Type\": \"Android\",\n    \"Device-OS-Version\": \"10.0.3\",\n    \"Currency\": \"$\"\n}",
+          "content": "{\n    \"App-Version\": \"0.0.1\",\n    \"Build-Number\": \"0.0.1\",\n    \"Device-Type\": \"Android\",\n    \"Device-OS-Version\": \"10.0.3\",\n    \"Device-Identifier\": \"34889-3248687-324876-324987-324876\"\n}",
           "type": "json"
         },
         {
@@ -1476,9 +1476,9 @@ define({ "api": [
   },
   {
     "type": "GET",
-    "url": "/report/analytics",
-    "title": "Analytics",
-    "description": "<p>Returns the Google Analytics report</p>",
+    "url": "/report/dashboard",
+    "title": "Get Dashboard",
+    "description": "<p>Returns the data from Google Analytics, Magento Admin etc</p>",
     "group": "Report",
     "parameter": {
       "fields": {
@@ -1488,20 +1488,20 @@ define({ "api": [
             "type": "String",
             "optional": false,
             "field": "dateFrom",
-            "description": "<p>From date, the date from infomation has to be fetched from Google Analytics server. The date format will be in yyyy/MM/dd</p>"
+            "description": "<p>From date, the date from infomation has to be fetched from Google Analytics server. The date format will be in yyyy-MM-dd</p>"
           },
           {
             "group": "Parameter",
             "type": "String",
             "optional": false,
             "field": "dateTo",
-            "description": "<p>The date upto the infomation to be collecetd from Google Analytics server. The date format will be in yyyy/MM/dd</p>"
+            "description": "<p>The date upto the infomation to be collecetd from Google Analytics server. The date format will be in yyyy-MM-dd</p>"
           },
           {
             "group": "Parameter",
             "type": "String",
             "optional": false,
-            "field": "siteId",
+            "field": "siteToken",
             "description": "<p>Unique ID of the site, for fetching report of a site.</p>"
           }
         ]
@@ -1509,7 +1509,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Params:",
-          "content": "{\n  \"dateFrom\": \"2020/03/21\",\n  \"dateTo\": \"2020/03/21\"\n  \"siteId\": \"4359989\"\n}",
+          "content": "{\n  \"dateFrom\": \"2020-03-21\",\n  \"dateTo\": \"2020-03-21\"\n  \"siteToken\": \"4359989\"\n}",
           "type": "json"
         }
       ]
@@ -1519,156 +1519,191 @@ define({ "api": [
         "Success 200": [
           {
             "group": "Success 200",
-            "type": "Number",
+            "type": "Object",
             "optional": false,
-            "field": "hits",
-            "description": "<p>.</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "Number",
-            "optional": false,
-            "field": "users",
-            "description": "<p>.</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "Number",
-            "optional": false,
-            "field": "sessionsPerUser",
-            "description": "<p>.</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "Number",
-            "optional": false,
-            "field": "sessions",
-            "description": "<p>.</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "Number",
-            "optional": false,
-            "field": "sessionDuration",
-            "description": "<p>.</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "Number",
-            "optional": false,
-            "field": "timeOnPage",
-            "description": "<p>.</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "Number",
-            "optional": false,
-            "field": "bounces",
-            "description": "<p>.</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "Number",
-            "optional": false,
-            "field": "bounceRate",
-            "description": "<p>.</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "Number",
-            "optional": false,
-            "field": "avgSessionDuration",
+            "field": "analytics",
             "description": "<p>.</p>"
           },
           {
             "group": "Success 200",
             "type": "String",
             "optional": false,
-            "field": "countryWise",
-            "description": "<p>.</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "countryWise.code",
+            "field": "analytics.url",
             "description": "<p>.</p>"
           },
           {
             "group": "Success 200",
             "type": "Number",
             "optional": false,
-            "field": "countryWise.sessoins",
-            "description": "<p>.</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "pageWise",
-            "description": "<p>.</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "pageWise.hostname",
-            "description": "<p>.</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "pageWise.pagePath",
+            "field": "analytics.hits",
             "description": "<p>.</p>"
           },
           {
             "group": "Success 200",
             "type": "Number",
             "optional": false,
-            "field": "pageWise.sessions",
+            "field": "analytics.users",
             "description": "<p>.</p>"
           },
           {
             "group": "Success 200",
             "type": "Number",
             "optional": false,
-            "field": "pageWise.pageValue",
+            "field": "analytics.sessionsPerUser",
+            "description": "<p>.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "analytics.sessions",
+            "description": "<p>.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "analytics.sessionDuration",
+            "description": "<p>.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "analytics.timeOnPage",
+            "description": "<p>.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "analytics.bounces",
+            "description": "<p>.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "analytics.bounceRate",
+            "description": "<p>.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "analytics.avgSessionDuration",
+            "description": "<p>.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "analytics.activeUsers",
+            "description": "<p>.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "analytics.countryWise",
+            "description": "<p>.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "analytics.countryWise.code",
+            "description": "<p>.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "analytics.countryWise.name",
+            "description": "<p>.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "analytics.countryWise.sessoins",
+            "description": "<p>.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "analytics.pageWise",
+            "description": "<p>.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "analytics.pageWise.hostname",
+            "description": "<p>.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "analytics.pageWise.pagePath",
+            "description": "<p>.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "analytics.pageWise.sessions",
+            "description": "<p>.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "analytics.pageWise.pageValue",
             "description": "<p>.</p>"
           },
           {
             "group": "Success 200",
             "type": "Object[]",
             "optional": false,
-            "field": "sourceWise",
+            "field": "analytics.sourceWise",
             "description": "<p>.</p>"
           },
           {
             "group": "Success 200",
             "type": "String",
             "optional": false,
-            "field": "sourceWise.sourceMedium",
+            "field": "analytics.sourceWise.sourceMedium",
             "description": "<p>.</p>"
           },
           {
             "group": "Success 200",
             "type": "Number",
             "optional": false,
-            "field": "sourceWise.sessions",
+            "field": "analytics.sourceWise.sessions",
             "description": "<p>.</p>"
           },
           {
             "group": "Success 200",
             "type": "Number",
             "optional": false,
-            "field": "sourceWise.users",
+            "field": "analytics.sourceWise.users",
             "description": "<p>.</p>"
           },
           {
             "group": "Success 200",
             "type": "Number",
             "optional": false,
-            "field": "sourceWise.organicSearches",
+            "field": "analytics.sourceWise.organicSearches",
+            "description": "<p>.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object[]",
+            "optional": false,
+            "field": "analytics.dateWise",
             "description": "<p>.</p>"
           }
         ]
@@ -1676,73 +1711,15 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "    HTTP/1.1 200 OK\n    {\n         \"hits\": 53,\n         \"users\": 16,\n         \"sessionsPerUser\":1.25,\n         \"sessions\": 20,\n         \"sessionDuration\":1036.0,\n         \"timeOnPage\":1037.0,\n         \"bounces\": 11,\n         \"bounceRate\":55.00000000000001,\n         \"avgSessionDuration\":51.8\n\n         \"countryWise\": [\n             {\n                 \"code\":\"GB\",\n                 \"sessions\":2\n             },\n             {\n                 \"code\":\"IN\",\n                 \"sessions\":13\n             }\n         ],\n\n         \"pageWise\": [ {\n                 \"hostname\":\"localhost\",\n                 \"pagePath\":\"/taarikaLocal/\",\n                 \"sessions\":2,\n                 \"pageValue\":0.0\n             }, {\n                 \"hostname\":\"taarikajohnshop.com\",\n                 \"pagePath\":\"/\",\n                 \"sessions\":12,\n                 \"pageValue\":0.0\n             } ],\n \n\t        \"sourceWise\": [ {\n             \"sourceMedium\":\"(direct) / (none)\",\n             \"sessions\":5,\n             \"users\":4,\n             \"organicSearches\":0\n          }, {\n             \"sourceMedium\":\"ameliahome.xyz / referral\",\n             \"sessions\":1,\n             \"users\":1,\n             \"organicSearches\":0\n         }]\n     }",
-          "type": "json"
-        }
-      ]
-    },
-    "error": {
-      "fields": {
-        "6xx": [
-          {
-            "group": "6xx",
-            "type": "Object",
-            "optional": false,
-            "field": "GoogleSessionExpired",
-            "description": "<p>Contains the url, provided by Google, for Google Analytics login.</p>"
-          },
-          {
-            "group": "6xx",
-            "type": "String",
-            "optional": false,
-            "field": "GeneralError",
-            "description": "<p>Any general / undefined error types will come under this category.</p>"
-          }
-        ],
-        "4xx": [
-          {
-            "group": "4xx",
-            "type": "String",
-            "optional": false,
-            "field": "SessionExpired",
-            "description": "<p>User session has expired.</p>"
-          },
-          {
-            "group": "4xx",
-            "type": "String",
-            "optional": false,
-            "field": "InactiveAccount",
-            "description": "<p>The account is inactive. Please contact admin.</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "GoogleSessionExpired",
-          "content": "HTTP/1.1 601 Google Session Expired\n{\n     url: \"https://login.googleanalytics.com\"\n}",
-          "type": "json"
-        },
-        {
-          "title": "SessionExpired",
-          "content": "HTTP/1.1 401 SessionExpired\n{\n    error: \"Your session has expired. Please sign-in again.\"\n}",
-          "type": "json"
-        },
-        {
-          "title": "GeneralError",
-          "content": "HTTP/1.1 600 GeneralError\n{\n    error: \"An error occured. Please try again.\"\n}",
-          "type": "json"
-        },
-        {
-          "title": "InactiveAccount",
-          "content": "HTTP/1.1 403 InactiveAccount\n{\n   \"error\": \"The account is inactive. Please contact admin.\"\n}",
+          "content": "HTTP/1.1 200 OK\n{\n    \"analytics\": {\n        \"url\":\"https://login.googleanalytics.com\",\n        \"hits\": 53,\n        \"users\": 16,\n        \"sessionsPerUser\":1.25,\n        \"sessions\": 20,\n        \"sessionDuration\":1036.0,\n        \"timeOnPage\":1037.0,\n        \"bounces\": 11,\n        \"bounceRate\":55.00000000000001,\n        \"avgSessionDuration\":51.8,\n\n        \"activeUsers\": 3455,\n\n        \"countryWise\": [{\n            \"code\":\"GB\",\n            \"name\": \"Great Britain\"\n            \"sessions\":2\n        },{\n            \"code\":\"IN\",\n            \"name\": \"India\"\n            \"sessions\":13\n        }],\n\n        \"pageWise\": [ {\n            \"hostname\":\"localhost\",\n            \"pagePath\":\"/taarikaLocal/\",\n            \"sessions\":2,\n            \"pageValue\":0.0\n        }, {\n            \"hostname\":\"taarikajohnshop.com\",\n            \"pagePath\":\"/\",\n            \"sessions\":12,\n            \"pageValue\":0.0\n        } ],\n\n        \"sourceWise\": [ {\n            \"sourceMedium\":\"(direct) / (none)\",\n            \"sessions\":5,\n            \"users\":4,\n            \"organicSearches\":0\n        }, {\n            \"sourceMedium\":\"ameliahome.xyz / referral\",\n            \"sessions\":1,\n            \"users\":1,\n            \"organicSearches\":0\n        }],\n\n        dateWise:[]\n    },\n\n    magento: {\n        \"sales\": {\n            \"lifeTimeSales\": \"$328,477,8.99\",\n            \"today\": \"$648.98\"\n        }\n    }\n}",
           "type": "json"
         }
       ]
     },
     "version": "0.0.0",
-    "filename": "apis/analytics.js",
+    "filename": "apis/report.js",
     "groupTitle": "Report",
-    "name": "GetReportAnalytics",
+    "name": "GetReportDashboard",
     "header": {
       "fields": {
         "Header": [
@@ -1778,8 +1755,8 @@ define({ "api": [
             "group": "Header",
             "type": "String",
             "optional": false,
-            "field": "Currency",
-            "description": "<p>Currency based on device locale.</p>"
+            "field": "Device-Identifier",
+            "description": "<p>Device token to send push notifictions.</p>"
           },
           {
             "group": "Header",
@@ -1793,12 +1770,58 @@ define({ "api": [
       "examples": [
         {
           "title": "CommonHeader",
-          "content": "{\n    \"App-Version\": \"0.0.1\",\n    \"Build-Number\": \"0.0.1\",\n    \"Device-Type\": \"Android\",\n    \"Device-OS-Version\": \"10.0.3\",\n    \"Currency\": \"$\"\n}",
+          "content": "{\n    \"App-Version\": \"0.0.1\",\n    \"Build-Number\": \"0.0.1\",\n    \"Device-Type\": \"Android\",\n    \"Device-OS-Version\": \"10.0.3\",\n    \"Device-Identifier\": \"34889-3248687-324876-324987-324876\"\n}",
           "type": "json"
         },
         {
           "title": "AuthHeader",
           "content": "{\n    \"Authorization\": \"Bearer YWxhZGRpbjpvcGVuc2VzYW1l\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "4xx": [
+          {
+            "group": "4xx",
+            "type": "String",
+            "optional": false,
+            "field": "SessionExpired",
+            "description": "<p>User session has expired.</p>"
+          },
+          {
+            "group": "4xx",
+            "type": "String",
+            "optional": false,
+            "field": "InactiveAccount",
+            "description": "<p>The account is inactive. Please contact admin.</p>"
+          }
+        ],
+        "6xx": [
+          {
+            "group": "6xx",
+            "type": "String",
+            "optional": false,
+            "field": "GeneralError",
+            "description": "<p>Any general / undefined error types will come under this category.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "SessionExpired",
+          "content": "HTTP/1.1 401 SessionExpired\n{\n    error: \"Your session has expired. Please sign-in again.\"\n}",
+          "type": "json"
+        },
+        {
+          "title": "GeneralError",
+          "content": "HTTP/1.1 600 GeneralError\n{\n    error: \"An error occured. Please try again.\"\n}",
+          "type": "json"
+        },
+        {
+          "title": "InactiveAccount",
+          "content": "HTTP/1.1 403 InactiveAccount\n{\n   \"error\": \"The account is inactive. Please contact admin.\"\n}",
           "type": "json"
         }
       ]
@@ -1896,8 +1919,8 @@ define({ "api": [
             "group": "Header",
             "type": "String",
             "optional": false,
-            "field": "Currency",
-            "description": "<p>Currency based on device locale.</p>"
+            "field": "Device-Identifier",
+            "description": "<p>Device token to send push notifictions.</p>"
           },
           {
             "group": "Header",
@@ -1911,7 +1934,164 @@ define({ "api": [
       "examples": [
         {
           "title": "CommonHeader",
-          "content": "{\n    \"App-Version\": \"0.0.1\",\n    \"Build-Number\": \"0.0.1\",\n    \"Device-Type\": \"Android\",\n    \"Device-OS-Version\": \"10.0.3\",\n    \"Currency\": \"$\"\n}",
+          "content": "{\n    \"App-Version\": \"0.0.1\",\n    \"Build-Number\": \"0.0.1\",\n    \"Device-Type\": \"Android\",\n    \"Device-OS-Version\": \"10.0.3\",\n    \"Device-Identifier\": \"34889-3248687-324876-324987-324876\"\n}",
+          "type": "json"
+        },
+        {
+          "title": "AuthHeader",
+          "content": "{\n    \"Authorization\": \"Bearer YWxhZGRpbjpvcGVuc2VzYW1l\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "6xx": [
+          {
+            "group": "6xx",
+            "type": "String",
+            "optional": false,
+            "field": "GeneralError",
+            "description": "<p>Any general / undefined error types will come under this category.</p>"
+          }
+        ],
+        "4xx": [
+          {
+            "group": "4xx",
+            "type": "String",
+            "optional": false,
+            "field": "SessionExpired",
+            "description": "<p>User session has expired.</p>"
+          },
+          {
+            "group": "4xx",
+            "type": "String",
+            "optional": false,
+            "field": "InactiveAccount",
+            "description": "<p>The account is inactive. Please contact admin.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "GeneralError",
+          "content": "HTTP/1.1 600 GeneralError\n{\n    error: \"An error occured. Please try again.\"\n}",
+          "type": "json"
+        },
+        {
+          "title": "SessionExpired",
+          "content": "HTTP/1.1 401 SessionExpired\n{\n    error: \"Your session has expired. Please sign-in again.\"\n}",
+          "type": "json"
+        },
+        {
+          "title": "InactiveAccount",
+          "content": "HTTP/1.1 403 InactiveAccount\n{\n   \"error\": \"The account is inactive. Please contact admin.\"\n}",
+          "type": "json"
+        }
+      ]
+    }
+  },
+  {
+    "type": "GET",
+    "url": "/user/analytics",
+    "title": "Get Analytics Authentiction",
+    "description": "<p>Returns the Url to authenticate with google</p>",
+    "name": "GetAnalyticsAuthentiction",
+    "group": "User",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "siteToken",
+            "description": "<p>Unique ID of the site, for fetching report of a site.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Request-Example:",
+          "content": "{\n   \"siteToken\": \"4359989\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "url",
+            "description": "<p>The url for authentication with Google</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n   url: \"https://login.googleanalytics.com\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "apis/user.js",
+    "groupTitle": "User",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "App-Version",
+            "description": "<p>Version of the application.</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Build-Number",
+            "description": "<p>The Build number of the application.</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Device-Type",
+            "description": "<p>Type of the device. iOS/Android.</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Device-OS-Version",
+            "description": "<p>Device OS version. Used during the time of removing app support for an OS Version.</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Device-Identifier",
+            "description": "<p>Device token to send push notifictions.</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>AuthToken received during login.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "CommonHeader",
+          "content": "{\n    \"App-Version\": \"0.0.1\",\n    \"Build-Number\": \"0.0.1\",\n    \"Device-Type\": \"Android\",\n    \"Device-OS-Version\": \"10.0.3\",\n    \"Device-Identifier\": \"34889-3248687-324876-324987-324876\"\n}",
           "type": "json"
         },
         {
@@ -2165,8 +2345,8 @@ define({ "api": [
             "group": "Header",
             "type": "String",
             "optional": false,
-            "field": "Currency",
-            "description": "<p>Currency based on device locale.</p>"
+            "field": "Device-Identifier",
+            "description": "<p>Device token to send push notifictions.</p>"
           },
           {
             "group": "Header",
@@ -2180,7 +2360,7 @@ define({ "api": [
       "examples": [
         {
           "title": "CommonHeader",
-          "content": "{\n    \"App-Version\": \"0.0.1\",\n    \"Build-Number\": \"0.0.1\",\n    \"Device-Type\": \"Android\",\n    \"Device-OS-Version\": \"10.0.3\",\n    \"Currency\": \"$\"\n}",
+          "content": "{\n    \"App-Version\": \"0.0.1\",\n    \"Build-Number\": \"0.0.1\",\n    \"Device-Type\": \"Android\",\n    \"Device-OS-Version\": \"10.0.3\",\n    \"Device-Identifier\": \"34889-3248687-324876-324987-324876\"\n}",
           "type": "json"
         },
         {
@@ -2406,15 +2586,15 @@ define({ "api": [
             "group": "Header",
             "type": "String",
             "optional": false,
-            "field": "Currency",
-            "description": "<p>Currency based on device locale.</p>"
+            "field": "Device-Identifier",
+            "description": "<p>Device token to send push notifictions.</p>"
           }
         ]
       },
       "examples": [
         {
           "title": "CommonHeader",
-          "content": "{\n    \"App-Version\": \"0.0.1\",\n    \"Build-Number\": \"0.0.1\",\n    \"Device-Type\": \"Android\",\n    \"Device-OS-Version\": \"10.0.3\",\n    \"Currency\": \"$\"\n}",
+          "content": "{\n    \"App-Version\": \"0.0.1\",\n    \"Build-Number\": \"0.0.1\",\n    \"Device-Type\": \"Android\",\n    \"Device-OS-Version\": \"10.0.3\",\n    \"Device-Identifier\": \"34889-3248687-324876-324987-324876\"\n}",
           "type": "json"
         }
       ]
@@ -2435,6 +2615,170 @@ define({ "api": [
         {
           "title": "GeneralError",
           "content": "HTTP/1.1 600 GeneralError\n{\n    error: \"An error occured. Please try again.\"\n}",
+          "type": "json"
+        }
+      ]
+    }
+  },
+  {
+    "type": "POST",
+    "url": "/user/registerpushtoken",
+    "title": "Register Push Token",
+    "description": "<p>Registers a device token for sending push notifications</p>",
+    "name": "RegisterPushToken",
+    "group": "User",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "userId",
+            "description": "<p>Unique ID of the user.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "deviceToken",
+            "description": "<p>Unique ID of the device.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Request-Example:",
+          "content": "{\n   \"userId\": \"4359989\",\n   \"deviceToken\": \"438-3453-435-4354354\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>Success</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n   message: \"success\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "apis/user.js",
+    "groupTitle": "User",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "App-Version",
+            "description": "<p>Version of the application.</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Build-Number",
+            "description": "<p>The Build number of the application.</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Device-Type",
+            "description": "<p>Type of the device. iOS/Android.</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Device-OS-Version",
+            "description": "<p>Device OS version. Used during the time of removing app support for an OS Version.</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Device-Identifier",
+            "description": "<p>Device token to send push notifictions.</p>"
+          },
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>AuthToken received during login.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "CommonHeader",
+          "content": "{\n    \"App-Version\": \"0.0.1\",\n    \"Build-Number\": \"0.0.1\",\n    \"Device-Type\": \"Android\",\n    \"Device-OS-Version\": \"10.0.3\",\n    \"Device-Identifier\": \"34889-3248687-324876-324987-324876\"\n}",
+          "type": "json"
+        },
+        {
+          "title": "AuthHeader",
+          "content": "{\n    \"Authorization\": \"Bearer YWxhZGRpbjpvcGVuc2VzYW1l\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "6xx": [
+          {
+            "group": "6xx",
+            "type": "String",
+            "optional": false,
+            "field": "GeneralError",
+            "description": "<p>Any general / undefined error types will come under this category.</p>"
+          }
+        ],
+        "4xx": [
+          {
+            "group": "4xx",
+            "type": "String",
+            "optional": false,
+            "field": "SessionExpired",
+            "description": "<p>User session has expired.</p>"
+          },
+          {
+            "group": "4xx",
+            "type": "String",
+            "optional": false,
+            "field": "InactiveAccount",
+            "description": "<p>The account is inactive. Please contact admin.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "GeneralError",
+          "content": "HTTP/1.1 600 GeneralError\n{\n    error: \"An error occured. Please try again.\"\n}",
+          "type": "json"
+        },
+        {
+          "title": "SessionExpired",
+          "content": "HTTP/1.1 401 SessionExpired\n{\n    error: \"Your session has expired. Please sign-in again.\"\n}",
+          "type": "json"
+        },
+        {
+          "title": "InactiveAccount",
+          "content": "HTTP/1.1 403 InactiveAccount\n{\n   \"error\": \"The account is inactive. Please contact admin.\"\n}",
           "type": "json"
         }
       ]
@@ -2602,8 +2946,8 @@ define({ "api": [
             "group": "Header",
             "type": "String",
             "optional": false,
-            "field": "Currency",
-            "description": "<p>Currency based on device locale.</p>"
+            "field": "Device-Identifier",
+            "description": "<p>Device token to send push notifictions.</p>"
           },
           {
             "group": "Header",
@@ -2617,7 +2961,7 @@ define({ "api": [
       "examples": [
         {
           "title": "CommonHeader",
-          "content": "{\n    \"App-Version\": \"0.0.1\",\n    \"Build-Number\": \"0.0.1\",\n    \"Device-Type\": \"Android\",\n    \"Device-OS-Version\": \"10.0.3\",\n    \"Currency\": \"$\"\n}",
+          "content": "{\n    \"App-Version\": \"0.0.1\",\n    \"Build-Number\": \"0.0.1\",\n    \"Device-Type\": \"Android\",\n    \"Device-OS-Version\": \"10.0.3\",\n    \"Device-Identifier\": \"34889-3248687-324876-324987-324876\"\n}",
           "type": "json"
         },
         {
@@ -2759,15 +3103,15 @@ define({ "api": [
             "group": "Header",
             "type": "String",
             "optional": false,
-            "field": "Currency",
-            "description": "<p>Currency based on device locale.</p>"
+            "field": "Device-Identifier",
+            "description": "<p>Device token to send push notifictions.</p>"
           }
         ]
       },
       "examples": [
         {
           "title": "CommonHeader",
-          "content": "{\n    \"App-Version\": \"0.0.1\",\n    \"Build-Number\": \"0.0.1\",\n    \"Device-Type\": \"Android\",\n    \"Device-OS-Version\": \"10.0.3\",\n    \"Currency\": \"$\"\n}",
+          "content": "{\n    \"App-Version\": \"0.0.1\",\n    \"Build-Number\": \"0.0.1\",\n    \"Device-Type\": \"Android\",\n    \"Device-OS-Version\": \"10.0.3\",\n    \"Device-Identifier\": \"34889-3248687-324876-324987-324876\"\n}",
           "type": "json"
         }
       ]
