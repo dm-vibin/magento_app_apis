@@ -2252,6 +2252,13 @@
             "group": "Success 200",
             "type": "String",
             "optional": false,
+            "field": "countryCode",
+            "description": "<p>Country code for telephone.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
             "field": "telephone",
             "description": "<p>Telephone of the User.</p>"
           },
@@ -2302,7 +2309,7 @@
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n   \"userId\": \"9389\",\n   \"firstname\": \"John\",\n   \"lastname\": \"Doe\",\n   \"company\": \"Digital Mesh\",\n   \"email\": \"user@digitalmesh.com\",\n   \"addressLine1\": \"Address Line 1\",\n   \"addressLine2\": \"Address Line 2\",\n   \"city\": \"Kochi\",\n   \"state\": \"Kerala\",\n   \"zip\": \"123456\",\n   \"country\" : \"India\",\n   \"telephone\": \"1234567900\",\n   \"licenseStatus\": \"PAID\",\n   \"activationCode\": \"3215Y-HSDHY7-328DH-GD72KJ\",\n   \"sites\": [{ \n      \"token\": \"9287-99JI-9843J-PUU398\",\n      \"name\": \"TextLocal\"\n   }]\n}",
+          "content": "HTTP/1.1 200 OK\n{\n   \"userId\": \"9389\",\n   \"firstname\": \"John\",\n   \"lastname\": \"Doe\",\n   \"company\": \"Digital Mesh\",\n   \"email\": \"user@digitalmesh.com\",\n   \"addressLine1\": \"Address Line 1\",\n   \"addressLine2\": \"Address Line 2\",\n   \"city\": \"Kochi\",\n   \"state\": \"Kerala\",\n   \"zip\": \"123456\",\n   \"country\" : \"India\",\n   \"countryCode\": \"+91\",\n   \"telephone\": \"1234567900\",\n   \"licenseStatus\": \"PAID\",\n   \"activationCode\": \"3215Y-HSDHY7-328DH-GD72KJ\",\n   \"sites\": [{ \n      \"token\": \"9287-99JI-9843J-PUU398\",\n      \"name\": \"TextLocal\"\n   }]\n}",
           "type": "json"
         }
       ]
@@ -2508,6 +2515,13 @@
             "group": "Parameter",
             "type": "String",
             "optional": false,
+            "field": "countryCode",
+            "description": "<p>Country code for telephone.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
             "field": "telephone",
             "description": "<p>Telephone of the User.</p>"
           },
@@ -2523,7 +2537,7 @@
       "examples": [
         {
           "title": "Request-Example:",
-          "content": "{\n   \"firstname\": \"John\",\n   \"lastname\": \"Doe\",\n   \"company\": \"Digital Mesh\",\n   \"email\": \"user@digitalmesh.com\",\n   \"addressLine1\": \"Address Line 1\",\n   \"addressLine2\": \"Address Line 2\",\n   \"city\": \"Kochi\",\n   \"state\": \"Kerala\",\n   \"zip\": \"123456\",\n   \"country\" : \"India\",\n   \"telephone\": \"1234567900\",\n   \"password\": \"UGFzc3dvcmQxMjMj\",\n}",
+          "content": "{\n   \"firstname\": \"John\",\n   \"lastname\": \"Doe\",\n   \"company\": \"Digital Mesh\",\n   \"email\": \"user@digitalmesh.com\",\n   \"addressLine1\": \"Address Line 1\",\n   \"addressLine2\": \"Address Line 2\",\n   \"city\": \"Kochi\",\n   \"state\": \"Kerala\",\n   \"zip\": \"123456\",\n   \"country\" : \"India\",\n   \"countryCode\": \"+91\",\n   \"telephone\": \"1234567900\",\n   \"password\": \"UGFzc3dvcmQxMjMj\",\n}",
           "type": "json"
         }
       ]
@@ -2875,6 +2889,13 @@
             "group": "Parameter",
             "type": "String",
             "optional": false,
+            "field": "countryCode",
+            "description": "<p>Country code for telephone.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
             "field": "telephone",
             "description": "<p>Telephone of the User.</p>"
           }
@@ -2883,7 +2904,7 @@
       "examples": [
         {
           "title": "Request-Example:",
-          "content": "{\n   \"firstname\": \"John\",\n   \"lastname\": \"Doe\",\n   \"company\": \"Digital Mesh\",\n   \"email\": \"user@digitalmesh.com\",\n   \"addressLine1\": \"Address Line 1\",\n   \"addressLine2\": \"Address Line 2\",\n   \"city\": \"Kochi\",\n   \"state\": \"Kerala\",\n   \"zip\": \"123456\",\n   \"country\" : \"India\",\n   \"telephone\": \"1234567900\"\n}",
+          "content": "{\n   \"firstname\": \"John\",\n   \"lastname\": \"Doe\",\n   \"company\": \"Digital Mesh\",\n   \"email\": \"user@digitalmesh.com\",\n   \"addressLine1\": \"Address Line 1\",\n   \"addressLine2\": \"Address Line 2\",\n   \"city\": \"Kochi\",\n   \"state\": \"Kerala\",\n   \"zip\": \"123456\",\n   \"countryCode\": \"+91\",\n   \"country\" : \"India\",\n   \"telephone\": \"1234567900\"\n}",
           "type": "json"
         }
       ]
