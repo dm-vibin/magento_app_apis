@@ -815,18 +815,18 @@ define({ "api": [
             "type": "String",
             "optional": false,
             "field": "date",
-            "description": "<p>Date on which the order is received.</p>"
+            "description": "<p>Date on which the order is received. . Format is &quot;yyyy-mm-dd HH:mm:ss&quot;</p>"
           },
           {
             "group": "Success 200",
             "type": "String",
             "allowedValues": [
-              "\"RECEIVED\"",
-              "\"CONFIRMED\"",
               "\"PROCESSING\"",
-              "\"SHIPPED\"",
-              "\"DELIVERED\"",
-              "\"CANCELLED\""
+              "\"PENDING\"",
+              "\"HOLDED\"",
+              "\"COMPLETE\"",
+              "\"CLOSED\"",
+              "\"CANCELED\""
             ],
             "optional": false,
             "field": "orders.status",
@@ -837,7 +837,7 @@ define({ "api": [
             "type": "String",
             "optional": false,
             "field": "updatedOn",
-            "description": "<p>The date on which the order status was updated.</p>"
+            "description": "<p>The date on which the order status was updated. . Format is &quot;yyyy-mm-dd HH:mm:ss&quot;</p>"
           },
           {
             "group": "Success 200",
@@ -858,7 +858,7 @@ define({ "api": [
             "type": "String",
             "optional": false,
             "field": "statusHistory.date",
-            "description": "<p>Date on which the mentioned status was updated to.</p>"
+            "description": "<p>Date on which the mentioned status was updated to. Format is &quot;yyyy-mm-dd HH:mm:ss&quot;</p>"
           },
           {
             "group": "Success 200",
@@ -942,7 +942,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n    \"id\": \"8743689\",\n    \"date\": \"2019/12/30\",\n    \"status\": \"PROCESSING\",\n    \"updatedOn\": \"2019/12/31\",\n    \"statusHistory\": [{\n        \"status\": \"RECEIVED\",\n        \"date\": \"2019/12/30\"\n    },{\n        \"status\": \"CONFIRMED\",\n        \"date\": \"2019/12/30\"\n    },{\n        \"status\": \"PROCESSING\",\n        \"date\": \"2019/12/31\"\n    }],\n    \"customer\": {\n        \"name\": \"Darvin Fleming\",\n        \"contact\": \"838877798797\",\n        \"billingAddress\": \"700 Arnold Street Pasadena, MD 21122\",\n        \"deliveryAddress\": \"585 Pawnee Circle Lanham, MD 20706\"\n    },\n    \"products\": [{\n        \"id\": \"832764\",\n        \"name\": \"REDMI NOTE 7 PRO, 64 GB\",\n        \"quantity\": \"9 pieces\",\n        \"price\": 900.00,\n        \"image\": \"https://resources.example.com/products/2187312.jpg\"\n    }]\n}",
+          "content": "HTTP/1.1 200 OK\n{\n    \"id\": \"8743689\",\n    \"date\": \"2019-12-30 07:10:10\",\n    \"status\": \"PROCESSING\",\n    \"updatedOn\": \"2019-12-30 07:10:10\",\n    \"statusHistory\": [{\n        \"status\": \"CLOSED\",\n        \"date\": \"2019-12-30 07:10:10\"\n    },{\n        \"status\": \"PENDING\",\n        \"date\": \"2019-12-30 07:10:10\"\n    },{\n        \"status\": \"PROCESSING\",\n        \"date\": \"2019-12-30 07:10:10\"\n    }],\n    \"customer\": {\n        \"name\": \"Darvin Fleming\",\n        \"contact\": \"838877798797\",\n        \"billingAddress\": \"700 Arnold Street Pasadena, MD 21122\",\n        \"deliveryAddress\": \"585 Pawnee Circle Lanham, MD 20706\"\n    },\n    \"products\": [{\n        \"id\": \"832764\",\n        \"name\": \"REDMI NOTE 7 PRO, 64 GB\",\n        \"quantity\": \"9 pieces\",\n        \"price\": 900.00,\n        \"image\": \"https://resources.example.com/products/2187312.jpg\"\n    }]\n}",
           "type": "json"
         }
       ]
@@ -1076,6 +1076,41 @@ define({ "api": [
     "title": "Get Orders",
     "description": "<p>Returns the orders</p>",
     "group": "Order",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "siteToken",
+            "description": "<p>Unique token of the site.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "allowedValues": [
+              "\"PROCESSING\"",
+              "\"PENDING\"",
+              "\"HOLDED\"",
+              "\"COMPLETE\"",
+              "\"CLOSED\"",
+              "\"CANCELED\""
+            ],
+            "optional": false,
+            "field": "status",
+            "description": "<p>Order of corresponding status to filter.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Params:",
+          "content": "{\n    \"siteToken\": \"43587-84735-34598-4387\",\n    \"status\": \"PROCESSING\"\n}",
+          "type": "json"
+        }
+      ]
+    },
     "success": {
       "fields": {
         "Success 200": [
@@ -1098,18 +1133,18 @@ define({ "api": [
             "type": "String",
             "optional": false,
             "field": "orders.date",
-            "description": "<p>Date on which the order is received.</p>"
+            "description": "<p>Date and time on which the order is received. Format is &quot;yyyy-mm-dd HH:mm:ss&quot;</p>"
           },
           {
             "group": "Success 200",
             "type": "String",
             "allowedValues": [
-              "\"RECEIVED\"",
-              "\"CONFIRMED\"",
               "\"PROCESSING\"",
-              "\"SHIPPED\"",
-              "\"DELIVERED\"",
-              "\"CANCELLED\""
+              "\"PENDING\"",
+              "\"HOLDED\"",
+              "\"COMPLETE\"",
+              "\"CLOSED\"",
+              "\"CANCELED\""
             ],
             "optional": false,
             "field": "orders.status",
@@ -1120,7 +1155,7 @@ define({ "api": [
             "type": "String",
             "optional": false,
             "field": "orders.updatedOn",
-            "description": "<p>The date on which the order status was updated.</p>"
+            "description": "<p>The date and time on which the order status was updated.  Format is &quot;yyyy-mm-dd HH:mm:ss&quot;.</p>"
           },
           {
             "group": "Success 200",
@@ -1162,7 +1197,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n {\n     \"orders\": [{\n         \"id\": \"8743689\",\n         \"date\": \"2019/12/30\",\n         \"status\": \"PROCESSING\",\n         \"updatedOn\": \"2019/12/31\",\n         \"customer\": {\n             \"name\": \"Darvin Fleming\",\n             \"contact\": \"838877798797\"\n         },\n         \"price\": 983.00,\n         \"items\": 10\n     }]\n }",
+          "content": "HTTP/1.1 200 OK\n {\n     \"orders\": [{\n         \"id\": \"8743689\",\n         \"date\": \"2019-12-30 07:10:10\",\n         \"status\": \"PROCESSING\",\n         \"updatedOn\": \"2019-12-30 07:10:10\",\n         \"customer\": {\n             \"name\": \"Darvin Fleming\",\n             \"contact\": \"838877798797\"\n         },\n         \"price\": 983.00,\n         \"items\": 10\n     }]\n }",
           "type": "json"
         }
       ]
@@ -1171,190 +1206,6 @@ define({ "api": [
     "filename": "apis/orders.js",
     "groupTitle": "Order",
     "name": "GetOrderOrders",
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "App-Version",
-            "description": "<p>Version of the application.</p>"
-          },
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "Build-Number",
-            "description": "<p>The Build number of the application.</p>"
-          },
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "Device-Type",
-            "description": "<p>Type of the device. iOS/Android.</p>"
-          },
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "Device-OS-Version",
-            "description": "<p>Device OS version. Used during the time of removing app support for an OS Version.</p>"
-          },
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "Device-Identifier",
-            "description": "<p>Device token to send push notifictions.</p>"
-          },
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "Authorization",
-            "description": "<p>AuthToken received during login.</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "CommonHeader",
-          "content": "{\n    \"App-Version\": \"0.0.1\",\n    \"Build-Number\": \"0.0.1\",\n    \"Device-Type\": \"Android\",\n    \"Device-OS-Version\": \"10.0.3\",\n    \"Device-Identifier\": \"34889-3248687-324876-324987-324876\"\n}",
-          "type": "json"
-        },
-        {
-          "title": "AuthHeader",
-          "content": "{\n    \"Authorization\": \"Bearer YWxhZGRpbjpvcGVuc2VzYW1l\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "error": {
-      "fields": {
-        "4xx": [
-          {
-            "group": "4xx",
-            "type": "String",
-            "optional": false,
-            "field": "SessionExpired",
-            "description": "<p>User session has expired.</p>"
-          },
-          {
-            "group": "4xx",
-            "type": "String",
-            "optional": false,
-            "field": "InactiveAccount",
-            "description": "<p>The account is inactive. Please contact admin.</p>"
-          }
-        ],
-        "6xx": [
-          {
-            "group": "6xx",
-            "type": "String",
-            "optional": false,
-            "field": "GeneralError",
-            "description": "<p>Any general / undefined error types will come under this category.</p>"
-          },
-          {
-            "group": "6xx",
-            "type": "String",
-            "optional": false,
-            "field": "MagentoNoPermission",
-            "description": "<p>The app doesnot have sufficient permissions to access the information.</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "SessionExpired",
-          "content": "HTTP/1.1 401 SessionExpired\n{\n    error: \"Your session has expired. Please sign-in again.\"\n}",
-          "type": "json"
-        },
-        {
-          "title": "GeneralError",
-          "content": "HTTP/1.1 600 GeneralError\n{\n    error: \"An error occured. Please try again.\"\n}",
-          "type": "json"
-        },
-        {
-          "title": "MagentoNoPermission",
-          "content": "HTTP/1.1 602 MagentoNoPermission\n{\n    error: \"The app doesnot have sufficient permissions to access the information.\"\n}",
-          "type": "json"
-        },
-        {
-          "title": "InactiveAccount",
-          "content": "HTTP/1.1 403 InactiveAccount\n{\n   \"error\": \"The account is inactive. Please contact admin.\"\n}",
-          "type": "json"
-        }
-      ]
-    }
-  },
-  {
-    "type": "PATCH",
-    "url": "/order/:orderId",
-    "title": "Save Order",
-    "description": "<p>Updates the order with the details provided</p>",
-    "group": "Order",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": false,
-            "field": "orderId",
-            "description": "<p>Unique ID of the order</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "String",
-            "allowedValues": [
-              "\"RECEIVED\"",
-              "\"CONFIRMED\"",
-              "\"PROCESSING\"",
-              "\"SHIPPED\"",
-              "\"DELIVERED\"",
-              "\"CANCELLED\""
-            ],
-            "optional": false,
-            "field": "status",
-            "description": "<p>Which status the order is moving to.</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Params:",
-          "content": "{\n    \"status\": \"SHIPPED\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "success": {
-      "fields": {
-        "Success 200": [
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "id",
-            "description": "<p>Unique ID of the order.</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n      \"id\": \"8743689\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "apis/orders.js",
-    "groupTitle": "Order",
-    "name": "PatchOrderOrderid",
     "header": {
       "fields": {
         "Header": [
