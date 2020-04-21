@@ -783,7 +783,7 @@
   },
   {
     "type": "GET",
-    "url": "/order/:orderId",
+    "url": "/order/getorder/:orderId",
     "title": "Get Order",
     "description": "<p>Returns the details of a particular order</p>",
     "group": "Order",
@@ -841,24 +841,10 @@
           },
           {
             "group": "Success 200",
-            "type": "Object[]",
-            "optional": false,
-            "field": "statusHistory",
-            "description": "<p>List of the status updates.</p>"
-          },
-          {
-            "group": "Success 200",
             "type": "String",
             "optional": false,
-            "field": "statusHistory.status",
-            "description": "<p>Changed to status.</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "statusHistory.date",
-            "description": "<p>Date on which the mentioned status was updated to. Format is &quot;yyyy-mm-dd HH:mm:ss&quot;</p>"
+            "field": "currencyCode",
+            "description": "<p>The currency on with the transaction was done eg. INR</p>"
           },
           {
             "group": "Success 200",
@@ -883,10 +869,59 @@
           },
           {
             "group": "Success 200",
-            "type": "String",
+            "type": "Object",
             "optional": false,
             "field": "customer.billingAddress",
             "description": "<p>The details of billing address.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "customer.billingAddress.addressLine1",
+            "description": "<p>The address line one of address.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "customer.billingAddress.addressLine2",
+            "description": "<p>The address line two of address.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "customer.billingAddress.state",
+            "description": "<p>The name of the state</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "customer.billingAddress.city",
+            "description": "<p>The name of the city</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "customer.billingAddress.zip",
+            "description": "<p>The zip code of the address</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "customer.billingAddress.country",
+            "description": "<p>The country the billing address is in.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "customer.billingAddress.telephone",
+            "description": "<p>The telephone number of the person in billing address.</p>"
           },
           {
             "group": "Success 200",
@@ -894,6 +929,55 @@
             "optional": false,
             "field": "customer.deliveryAddress",
             "description": "<p>The details of delivery address.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "customer.deliveryAddress.addressLine1",
+            "description": "<p>The address line one of address.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "customer.deliveryAddress.addressLine2",
+            "description": "<p>The address line two of address.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "customer.deliveryAddress.state",
+            "description": "<p>The name of the state</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "customer.deliveryAddress.city",
+            "description": "<p>The name of the city</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "customer.deliveryAddress.zip",
+            "description": "<p>The zip code of the address</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "customer.deliveryAddress.country",
+            "description": "<p>The country the billing address is in.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "customer.deliveryAddress.telephone",
+            "description": "<p>The telephone number of the person in delivery address.</p>"
           },
           {
             "group": "Success 200",
@@ -936,13 +1020,62 @@
             "optional": false,
             "field": "products.image",
             "description": "<p>Thumbnail image of the product</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "price",
+            "description": "<p>Splitup of pricing.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "price.grandTotal",
+            "description": "<p>Grant total of the order.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "price.discount",
+            "description": "<p>Discount on order.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "price.shippingAmount",
+            "description": "<p>Shipping charges on the order.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "price.shippingTaxAmount",
+            "description": "<p>Tax on Shipping charges.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "price.taxAmount",
+            "description": "<p>Tax on order amount.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "price.subtotal",
+            "description": "<p>Sub total of the order.</p>"
           }
         ]
       },
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n    \"id\": \"8743689\",\n    \"date\": \"2019-12-30 07:10:10\",\n    \"status\": \"PROCESSING\",\n    \"updatedOn\": \"2019-12-30 07:10:10\",\n    \"statusHistory\": [{\n        \"status\": \"CLOSED\",\n        \"date\": \"2019-12-30 07:10:10\"\n    },{\n        \"status\": \"PENDING\",\n        \"date\": \"2019-12-30 07:10:10\"\n    },{\n        \"status\": \"PROCESSING\",\n        \"date\": \"2019-12-30 07:10:10\"\n    }],\n    \"customer\": {\n        \"name\": \"Darvin Fleming\",\n        \"contact\": \"838877798797\",\n        \"billingAddress\": \"700 Arnold Street Pasadena, MD 21122\",\n        \"deliveryAddress\": \"585 Pawnee Circle Lanham, MD 20706\"\n    },\n    \"products\": [{\n        \"id\": \"832764\",\n        \"name\": \"REDMI NOTE 7 PRO, 64 GB\",\n        \"quantity\": \"9 pieces\",\n        \"price\": 900.00,\n        \"image\": \"https://resources.example.com/products/2187312.jpg\"\n    }]\n}",
+          "content": "HTTP/1.1 200 OK\n{\n    \"id\": \"8743689\",\n    \"date\": \"2019-12-30 07:10:10\",\n    \"status\": \"PROCESSING\",\n    \"updatedOn\": \"2019-12-30 07:10:10\",\n    \"currencyCode\": \"INR\",\n    \"customer\": {\n        \"name\": \"Darvin Fleming\",\n        \"contact\": \"838877798797\",\n        \"billingAddress\": {\n            \"addressLine1\": \"Cochin Special Economic Zone\",\n            \"addressLine2\": \"Kakanad\",\n            \"state\": \"Kerala\",\n            \"city\": \"Kochi\",\n            \"zip\": \"5645645\",\n            \"country\": \"India\",\n            \"telephone\": \"+916545645666\"\n        },\n        \"deliveryAddress\": {\n            \"name\": \"David\",\n            \"addressLine1\": \"Cochin Special Economic Zone\",\n            \"addressLine2\": \"Kakanad\",\n            \"state\": \"Kerala\",\n            \"city\": \"Kochi\",\n            \"zip\": \"456456\",\n            \"country\": \"India\",\n            \"telephone\": \"+914768678678\"\n        }\n    },\n    \"products\": [{\n        \"id\": \"832764\",\n        \"sku\": \"Faces11\",\n        \"name\": \"Faces 11\",\n        \"quantityOrdered\": 1,\n        \"quantityShipped\": 0,\n        \"price\": 800,\n        \"rowTotal\": 800\n    }],\n    \"price\": {\n        \"grandTotal\": 836,\n        \"discount\": 0,\n        \"shippingAmount\": 36,\n        \"shippingTaxAmount\": 0,\n        \"taxAmount\": 0,\n        \"subtotal\": 0\n    }\n}",
           "type": "json"
         }
       ]
@@ -950,7 +1083,7 @@
     "version": "0.0.0",
     "filename": "apis/orders.js",
     "groupTitle": "Order",
-    "name": "GetOrderOrderid",
+    "name": "GetOrderGetorderOrderid",
     "header": {
       "fields": {
         "Header": [
@@ -1187,6 +1320,13 @@
           },
           {
             "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "orders.currencyCode",
+            "description": "<p>The currency on with the transaction was done eg. INR</p>"
+          },
+          {
+            "group": "Success 200",
             "type": "Number",
             "optional": false,
             "field": "orders.items",
@@ -1197,7 +1337,7 @@
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n {\n     \"orders\": [{\n         \"id\": \"8743689\",\n         \"date\": \"2019-12-30 07:10:10\",\n         \"status\": \"PROCESSING\",\n         \"updatedOn\": \"2019-12-30 07:10:10\",\n         \"customer\": {\n             \"name\": \"Darvin Fleming\",\n             \"contact\": \"838877798797\"\n         },\n         \"price\": 983.00,\n         \"items\": 10\n     }]\n }",
+          "content": "HTTP/1.1 200 OK\n {\n     \"orders\": [{\n         \"id\": \"8743689\",\n         \"date\": \"2019-12-30 07:10:10\",\n         \"status\": \"PROCESSING\",\n         \"updatedOn\": \"2019-12-30 07:10:10\",\n         \"customer\": {\n             \"name\": \"Darvin Fleming\",\n             \"contact\": \"838877798797\"\n         },\n         \"price\": 983.00,\n         \"currencyCode\": \"INR\",\n         \"items\": 10\n     }]\n }",
           "type": "json"
         }
       ]
