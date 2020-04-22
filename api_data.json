@@ -796,6 +796,13 @@
             "optional": false,
             "field": "orderId",
             "description": "<p>Unique ID of the order</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "siteToken",
+            "description": "<p>Unique ID of the site</p>"
           }
         ]
       }
@@ -876,105 +883,112 @@
           },
           {
             "group": "Success 200",
-            "type": "Object",
+            "type": "String",
             "optional": false,
             "field": "customer.billingAddress.addressLine1",
             "description": "<p>The address line one of address.</p>"
           },
           {
             "group": "Success 200",
-            "type": "Object",
+            "type": "String",
             "optional": false,
             "field": "customer.billingAddress.addressLine2",
             "description": "<p>The address line two of address.</p>"
           },
           {
             "group": "Success 200",
-            "type": "Object",
+            "type": "String",
             "optional": false,
             "field": "customer.billingAddress.state",
             "description": "<p>The name of the state</p>"
           },
           {
             "group": "Success 200",
-            "type": "Object",
+            "type": "String",
             "optional": false,
             "field": "customer.billingAddress.city",
             "description": "<p>The name of the city</p>"
           },
           {
             "group": "Success 200",
-            "type": "Object",
+            "type": "String",
             "optional": false,
             "field": "customer.billingAddress.zip",
             "description": "<p>The zip code of the address</p>"
           },
           {
             "group": "Success 200",
-            "type": "Object",
+            "type": "String",
             "optional": false,
             "field": "customer.billingAddress.country",
             "description": "<p>The country the billing address is in.</p>"
           },
           {
             "group": "Success 200",
-            "type": "Object",
+            "type": "String",
             "optional": false,
             "field": "customer.billingAddress.telephone",
             "description": "<p>The telephone number of the person in billing address.</p>"
           },
           {
             "group": "Success 200",
-            "type": "String",
+            "type": "Object",
             "optional": false,
             "field": "customer.deliveryAddress",
             "description": "<p>The details of delivery address.</p>"
           },
           {
             "group": "Success 200",
-            "type": "Object",
+            "type": "String",
+            "optional": false,
+            "field": "customer.deliveryAddress.name",
+            "description": "<p>The name of the person who receive the order.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
             "optional": false,
             "field": "customer.deliveryAddress.addressLine1",
             "description": "<p>The address line one of address.</p>"
           },
           {
             "group": "Success 200",
-            "type": "Object",
+            "type": "String",
             "optional": false,
             "field": "customer.deliveryAddress.addressLine2",
             "description": "<p>The address line two of address.</p>"
           },
           {
             "group": "Success 200",
-            "type": "Object",
+            "type": "String",
             "optional": false,
             "field": "customer.deliveryAddress.state",
             "description": "<p>The name of the state</p>"
           },
           {
             "group": "Success 200",
-            "type": "Object",
+            "type": "String",
             "optional": false,
             "field": "customer.deliveryAddress.city",
             "description": "<p>The name of the city</p>"
           },
           {
             "group": "Success 200",
-            "type": "Object",
+            "type": "String",
             "optional": false,
             "field": "customer.deliveryAddress.zip",
             "description": "<p>The zip code of the address</p>"
           },
           {
             "group": "Success 200",
-            "type": "Object",
+            "type": "String",
             "optional": false,
             "field": "customer.deliveryAddress.country",
-            "description": "<p>The country the billing address is in.</p>"
+            "description": "<p>The country the delivery address is in.</p>"
           },
           {
             "group": "Success 200",
-            "type": "Object",
+            "type": "String",
             "optional": false,
             "field": "customer.deliveryAddress.telephone",
             "description": "<p>The telephone number of the person in delivery address.</p>"
@@ -1023,51 +1037,44 @@
           },
           {
             "group": "Success 200",
-            "type": "Object",
-            "optional": false,
-            "field": "price",
-            "description": "<p>Splitup of pricing.</p>"
-          },
-          {
-            "group": "Success 200",
             "type": "Number",
             "optional": false,
-            "field": "price.grandTotal",
+            "field": "price",
             "description": "<p>Grant total of the order.</p>"
           },
           {
             "group": "Success 200",
             "type": "Number",
             "optional": false,
-            "field": "price.discount",
+            "field": "discount",
             "description": "<p>Discount on order.</p>"
           },
           {
             "group": "Success 200",
             "type": "Number",
             "optional": false,
-            "field": "price.shippingAmount",
+            "field": "shippingAmount",
             "description": "<p>Shipping charges on the order.</p>"
           },
           {
             "group": "Success 200",
             "type": "Number",
             "optional": false,
-            "field": "price.shippingTaxAmount",
+            "field": "shippingTaxAmount",
             "description": "<p>Tax on Shipping charges.</p>"
           },
           {
             "group": "Success 200",
             "type": "Number",
             "optional": false,
-            "field": "price.taxAmount",
+            "field": "taxAmount",
             "description": "<p>Tax on order amount.</p>"
           },
           {
             "group": "Success 200",
             "type": "Number",
             "optional": false,
-            "field": "price.subtotal",
+            "field": "subtotal",
             "description": "<p>Sub total of the order.</p>"
           }
         ]
@@ -1075,7 +1082,7 @@
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n    \"id\": \"8743689\",\n    \"date\": \"2019-12-30 07:10:10\",\n    \"status\": \"PROCESSING\",\n    \"updatedOn\": \"2019-12-30 07:10:10\",\n    \"currencyCode\": \"INR\",\n    \"customer\": {\n        \"name\": \"Darvin Fleming\",\n        \"contact\": \"838877798797\",\n        \"billingAddress\": {\n            \"addressLine1\": \"Cochin Special Economic Zone\",\n            \"addressLine2\": \"Kakanad\",\n            \"state\": \"Kerala\",\n            \"city\": \"Kochi\",\n            \"zip\": \"5645645\",\n            \"country\": \"India\",\n            \"telephone\": \"+916545645666\"\n        },\n        \"deliveryAddress\": {\n            \"name\": \"David\",\n            \"addressLine1\": \"Cochin Special Economic Zone\",\n            \"addressLine2\": \"Kakanad\",\n            \"state\": \"Kerala\",\n            \"city\": \"Kochi\",\n            \"zip\": \"456456\",\n            \"country\": \"India\",\n            \"telephone\": \"+914768678678\"\n        }\n    },\n    \"products\": [{\n        \"id\": \"832764\",\n        \"sku\": \"Faces11\",\n        \"name\": \"Faces 11\",\n        \"quantityOrdered\": 1,\n        \"quantityShipped\": 0,\n        \"price\": 800,\n        \"rowTotal\": 800\n    }],\n    \"price\": {\n        \"grandTotal\": 836,\n        \"discount\": 0,\n        \"shippingAmount\": 36,\n        \"shippingTaxAmount\": 0,\n        \"taxAmount\": 0,\n        \"subtotal\": 0\n    }\n}",
+          "content": "HTTP/1.1 200 OK\n{\n    \"id\": \"8743689\",\n    \"date\": \"2019-12-30 07:10:10\",\n    \"status\": \"PROCESSING\",\n    \"updatedOn\": \"2019-12-30 07:10:10\",\n    \"currencyCode\": \"INR\",\n    \"customer\": {\n        \"name\": \"Darvin Fleming\",\n        \"contact\": \"838877798797\",\n        \"billingAddress\": {\n            \"addressLine1\": \"Cochin Special Economic Zone\",\n            \"addressLine2\": \"Kakanad\",\n            \"state\": \"Kerala\",\n            \"city\": \"Kochi\",\n            \"zip\": \"5645645\",\n            \"country\": \"India\",\n            \"telephone\": \"+916545645666\"\n        },\n        \"deliveryAddress\": {\n            \"name\": \"David\",\n            \"addressLine1\": \"Cochin Special Economic Zone\",\n            \"addressLine2\": \"Kakanad\",\n            \"state\": \"Kerala\",\n            \"city\": \"Kochi\",\n            \"zip\": \"456456\",\n            \"country\": \"India\",\n            \"telephone\": \"+914768678678\"\n        }\n    },\n    \"products\": [{\n        \"id\": \"832764\",\n        \"sku\": \"Faces11\",\n        \"name\": \"Faces 11\",\n        \"quantityOrdered\": 1,\n        \"quantityShipped\": 0,\n        \"price\": 800,\n        \"rowTotal\": 800\n    }],\n    \"price\": 865,\n    \"discount\": 0,\n    \"shippingAmount\": 36,\n    \"shippingTaxAmount\": 0,\n    \"taxAmount\": 0,\n    \"subtotal\": 0\n}",
           "type": "json"
         }
       ]
