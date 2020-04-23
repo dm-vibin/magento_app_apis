@@ -876,6 +876,13 @@ define({ "api": [
           },
           {
             "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "customer.email",
+            "description": "<p>Email of the customer.</p>"
+          },
+          {
+            "group": "Success 200",
             "type": "Object",
             "optional": false,
             "field": "customer.billingAddress",
@@ -1076,13 +1083,27 @@ define({ "api": [
             "optional": false,
             "field": "subtotal",
             "description": "<p>Sub total of the order.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "shippingMethod",
+            "description": "<p>Name of the service used to ship the package.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "paymentMode",
+            "description": "<p>Payment mode used to fulfill the payment.</p>"
           }
         ]
       },
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n    \"id\": \"8743689\",\n    \"date\": \"2019-12-30 07:10:10\",\n    \"status\": \"PROCESSING\",\n    \"updatedOn\": \"2019-12-30 07:10:10\",\n    \"currencyCode\": \"INR\",\n    \"customer\": {\n        \"name\": \"Darvin Fleming\",\n        \"contact\": \"838877798797\",\n        \"billingAddress\": {\n            \"addressLine1\": \"Cochin Special Economic Zone\",\n            \"addressLine2\": \"Kakanad\",\n            \"state\": \"Kerala\",\n            \"city\": \"Kochi\",\n            \"zip\": \"5645645\",\n            \"country\": \"India\",\n            \"telephone\": \"+916545645666\"\n        },\n        \"deliveryAddress\": {\n            \"name\": \"David\",\n            \"addressLine1\": \"Cochin Special Economic Zone\",\n            \"addressLine2\": \"Kakanad\",\n            \"state\": \"Kerala\",\n            \"city\": \"Kochi\",\n            \"zip\": \"456456\",\n            \"country\": \"India\",\n            \"telephone\": \"+914768678678\"\n        }\n    },\n    \"products\": [{\n        \"id\": \"832764\",\n        \"sku\": \"Faces11\",\n        \"name\": \"Faces 11\",\n        \"quantityOrdered\": 1,\n        \"quantityShipped\": 0,\n        \"price\": 800,\n        \"rowTotal\": 800\n    }],\n    \"price\": 865,\n    \"discount\": 0,\n    \"shippingAmount\": 36,\n    \"shippingTaxAmount\": 0,\n    \"taxAmount\": 0,\n    \"subtotal\": 0\n}",
+          "content": "HTTP/1.1 200 OK\n{\n    \"id\": \"8743689\",\n    \"date\": \"2019-12-30 07:10:10\",\n    \"status\": \"PROCESSING\",\n    \"updatedOn\": \"2019-12-30 07:10:10\",\n    \"currencyCode\": \"INR\",\n    \"customer\": {\n        \"name\": \"Darvin Fleming\",\n        \"contact\": \"838877798797\",\n        \"email\": \"david@example.com\",\n        \"billingAddress\": {\n            \"addressLine1\": \"Cochin Special Economic Zone\",\n            \"addressLine2\": \"Kakanad\",\n            \"state\": \"Kerala\",\n            \"city\": \"Kochi\",\n            \"zip\": \"5645645\",\n            \"country\": \"India\",\n            \"telephone\": \"+916545645666\"\n        },\n        \"deliveryAddress\": {\n            \"name\": \"David\",\n            \"addressLine1\": \"Cochin Special Economic Zone\",\n            \"addressLine2\": \"Kakanad\",\n            \"state\": \"Kerala\",\n            \"city\": \"Kochi\",\n            \"zip\": \"456456\",\n            \"country\": \"India\",\n            \"telephone\": \"+914768678678\"\n        }\n    },\n    \"products\": [{\n        \"id\": \"832764\",\n        \"sku\": \"Faces11\",\n        \"name\": \"Faces 11\",\n        \"quantityOrdered\": 1,\n        \"quantityShipped\": 0,\n        \"price\": 800,\n        \"rowTotal\": 800\n    }],\n    \"price\": 865,\n    \"discount\": 0,\n    \"shippingAmount\": 36,\n    \"shippingTaxAmount\": 0,\n    \"taxAmount\": 0,\n    \"subtotal\": 0,\n    \"shippingMethod\": \"Fedex\",\n    \"paymentMode\": \"VISA Credit Card\"\n}",
           "type": "json"
         }
       ]
@@ -2312,6 +2333,64 @@ define({ "api": [
         }
       ]
     },
+    "error": {
+      "fields": {
+        "6xx": [
+          {
+            "group": "6xx",
+            "type": "String",
+            "optional": false,
+            "field": "EmailVerificationPending",
+            "description": "<p>User has not yet verified the email.</p>"
+          },
+          {
+            "group": "6xx",
+            "type": "String",
+            "optional": false,
+            "field": "GeneralError",
+            "description": "<p>Any general / undefined error types will come under this category.</p>"
+          }
+        ],
+        "4xx": [
+          {
+            "group": "4xx",
+            "type": "String",
+            "optional": false,
+            "field": "InactiveAccount",
+            "description": "<p>The account is inactive. Please contact admin.</p>"
+          },
+          {
+            "group": "4xx",
+            "type": "String",
+            "optional": false,
+            "field": "SessionExpired",
+            "description": "<p>User session has expired.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "EmailVerificationPending",
+          "content": "HTTP/1.1 603 EmailVerificationPending\n{\n    error: \"You have not verified you email. Please verify the same.\"\n}",
+          "type": "json"
+        },
+        {
+          "title": "InactiveAccount",
+          "content": "HTTP/1.1 403 InactiveAccount\n{\n   \"error\": \"The account is inactive. Please contact admin.\"\n}",
+          "type": "json"
+        },
+        {
+          "title": "SessionExpired",
+          "content": "HTTP/1.1 401 SessionExpired\n{\n    error: \"Your session has expired. Please sign-in again.\"\n}",
+          "type": "json"
+        },
+        {
+          "title": "GeneralError",
+          "content": "HTTP/1.1 600 GeneralError\n{\n    error: \"An error occured. Please try again.\"\n}",
+          "type": "json"
+        }
+      ]
+    },
     "version": "0.0.0",
     "filename": "apis/user.js",
     "groupTitle": "User",
@@ -2371,52 +2450,6 @@ define({ "api": [
         {
           "title": "AuthHeader",
           "content": "{\n    \"Authorization\": \"Bearer YWxhZGRpbjpvcGVuc2VzYW1l\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "error": {
-      "fields": {
-        "4xx": [
-          {
-            "group": "4xx",
-            "type": "String",
-            "optional": false,
-            "field": "InactiveAccount",
-            "description": "<p>The account is inactive. Please contact admin.</p>"
-          },
-          {
-            "group": "4xx",
-            "type": "String",
-            "optional": false,
-            "field": "SessionExpired",
-            "description": "<p>User session has expired.</p>"
-          }
-        ],
-        "6xx": [
-          {
-            "group": "6xx",
-            "type": "String",
-            "optional": false,
-            "field": "GeneralError",
-            "description": "<p>Any general / undefined error types will come under this category.</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "InactiveAccount",
-          "content": "HTTP/1.1 403 InactiveAccount\n{\n   \"error\": \"The account is inactive. Please contact admin.\"\n}",
-          "type": "json"
-        },
-        {
-          "title": "SessionExpired",
-          "content": "HTTP/1.1 401 SessionExpired\n{\n    error: \"Your session has expired. Please sign-in again.\"\n}",
-          "type": "json"
-        },
-        {
-          "title": "GeneralError",
-          "content": "HTTP/1.1 600 GeneralError\n{\n    error: \"An error occured. Please try again.\"\n}",
           "type": "json"
         }
       ]
