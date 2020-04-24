@@ -1242,6 +1242,13 @@
         "Parameter": [
           {
             "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "page",
+            "description": "<p>Index of the current page requested. Starts from 1.</p>"
+          },
+          {
+            "group": "Parameter",
             "type": "String",
             "optional": false,
             "field": "siteToken",
@@ -1267,7 +1274,7 @@
       "examples": [
         {
           "title": "Params:",
-          "content": "{\n    \"siteToken\": \"43587-84735-34598-4387\",\n    \"status\": \"PROCESSING\"\n}",
+          "content": "{\n    \"siteToken\": \"43587-84735-34598-4387\",\n    \"status\": \"PROCESSING\",\n    \"page\": 1\n}",
           "type": "json"
         }
       ]
@@ -1275,6 +1282,20 @@
     "success": {
       "fields": {
         "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "page",
+            "description": "<p>Index of the current page.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Boolean",
+            "optional": false,
+            "field": "hasNext",
+            "description": "<p>Indicates there is any dat left to fetch.</p>"
+          },
           {
             "group": "Success 200",
             "type": "Object[]",
@@ -1365,7 +1386,7 @@
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n {\n     \"orders\": [{\n         \"id\": \"8743689\",\n         \"date\": \"2019-12-30 07:10:10\",\n         \"status\": \"PROCESSING\",\n         \"updatedOn\": \"2019-12-30 07:10:10\",\n         \"customer\": {\n             \"name\": \"Darvin Fleming\",\n             \"contact\": \"838877798797\"\n         },\n         \"price\": 983.00,\n         \"currencyCode\": \"INR\",\n         \"items\": 10\n     }]\n }",
+          "content": "HTTP/1.1 200 OK\n {\n     \"page\": 1,\n     \"hasNext\": false,\n     \"orders\": [{\n         \"id\": \"8743689\",\n         \"date\": \"2019-12-30 07:10:10\",\n         \"status\": \"PROCESSING\",\n         \"updatedOn\": \"2019-12-30 07:10:10\",\n         \"customer\": {\n             \"name\": \"Darvin Fleming\",\n             \"contact\": \"838877798797\"\n         },\n         \"price\": 983.00,\n         \"currencyCode\": \"INR\",\n         \"items\": 10\n     }]\n }",
           "type": "json"
         }
       ]
@@ -1723,6 +1744,83 @@
             "type": "Object[]",
             "optional": false,
             "field": "analytics.dateWise",
+            "description": ""
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "analytics.dateWise.date",
+            "description": "<p>.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "analytics.dateWise.week",
+            "description": "<p>.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "analytics.dateWise.month",
+            "description": "<p>.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "analytics.dateWise.year",
+            "description": "<p>.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "analytics.dateWise.hits",
+            "description": "<p>.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "analytics.dateWise.sessionsPerUser",
+            "description": "<p>.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "analytics.dateWise.users",
+            "description": "<p>.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "analytics.dateWise.sessionDuration",
+            "description": "<p>.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "analytics.dateWise.avgSessionDuration",
+            "description": "<p>.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "analytics.dateWise.sessions",
+            "description": "<p>.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "analytics.dateWise.timeOnPage",
             "description": "<p>.</p>"
           }
         ]
@@ -1730,7 +1828,7 @@
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n    \"analytics\": {\n        \"url\":\"https://login.googleanalytics.com\",\n        \"hits\": 53,\n        \"users\": 16,\n        \"sessionsPerUser\":1.25,\n        \"sessions\": 20,\n        \"sessionDuration\":1036.0,\n        \"timeOnPage\":1037.0,\n        \"bounces\": 11,\n        \"bounceRate\":55.00000000000001,\n        \"avgSessionDuration\":51.8,\n\n        \"activeUsers\": 3455,\n\n        \"countryWise\": [{\n            \"code\":\"GB\",\n            \"name\": \"Great Britain\"\n            \"sessions\":2\n        },{\n            \"code\":\"IN\",\n            \"name\": \"India\"\n            \"sessions\":13\n        }],\n\n        \"pageWise\": [ {\n            \"hostname\":\"localhost\",\n            \"pagePath\":\"/taarikaLocal/\",\n            \"sessions\":2,\n            \"pageValue\":0.0\n        }, {\n            \"hostname\":\"taarikajohnshop.com\",\n            \"pagePath\":\"/\",\n            \"sessions\":12,\n            \"pageValue\":0.0\n        } ],\n\n        \"sourceWise\": [ {\n            \"sourceMedium\":\"(direct) / (none)\",\n            \"sessions\":5,\n            \"users\":4,\n            \"organicSearches\":0\n        }, {\n            \"sourceMedium\":\"ameliahome.xyz / referral\",\n            \"sessions\":1,\n            \"users\":1,\n            \"organicSearches\":0\n        }],\n\n        dateWise:[]\n    },\n\n    magento: {\n        \"sales\": {\n            \"lifeTimeSales\": \"$328,477,8.99\",\n            \"today\": \"$648.98\"\n        }\n    }\n}",
+          "content": "HTTP/1.1 200 OK\n{\n    \"analytics\": {\n        \"url\":\"https://login.googleanalytics.com\",\n        \"hits\": 53,\n        \"users\": 16,\n        \"sessionsPerUser\":1.25,\n        \"sessions\": 20,\n        \"sessionDuration\":1036.0,\n        \"timeOnPage\":1037.0,\n        \"bounces\": 11,\n        \"bounceRate\":55.00000000000001,\n        \"avgSessionDuration\":51.8,\n\n        \"activeUsers\": 3455,\n\n        \"countryWise\": [{\n            \"code\":\"GB\",\n            \"name\": \"Great Britain\"\n            \"sessions\":2\n        },{\n            \"code\":\"IN\",\n            \"name\": \"India\"\n            \"sessions\":13\n        }],\n\n        \"pageWise\": [ {\n            \"hostname\":\"localhost\",\n            \"pagePath\":\"/taarikaLocal/\",\n            \"sessions\":2,\n            \"pageValue\":0.0\n        }, {\n            \"hostname\":\"taarikajohnshop.com\",\n            \"pagePath\":\"/\",\n            \"sessions\":12,\n            \"pageValue\":0.0\n        } ],\n\n        \"sourceWise\": [ {\n            \"sourceMedium\":\"(direct) / (none)\",\n            \"sessions\":5,\n            \"users\":4,\n            \"organicSearches\":0\n        }, {\n            \"sourceMedium\":\"ameliahome.xyz / referral\",\n            \"sessions\":1,\n            \"users\":1,\n            \"organicSearches\":0\n        }],\n\n        dateWise:[\n            \"year\": \"2019\",\n            \"week\": \"06\",\n            \"month\": \"01\",\n            \"date\": \"2012-01-19\",\n            \"hits\": \"0\",\n            \"users\": \"0\",\n            \"sessionsPerUser\": \"0.0\",\n            \"sessions\": \"0\",\n            \"sessionDuration\": \"0.0\",\n            \"timeOnPage\": \"0.0\",\n            \"avgSessionDuration\": \"0.0\"\n        ]\n    },\n\n    magento: {\n        \"sales\": {\n            \"lifeTimeSales\": \"$328,477,8.99\",\n            \"today\": \"$648.98\"\n        }\n    }\n}",
           "type": "json"
         }
       ]
